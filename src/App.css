@@ -37,7 +37,6 @@ input[type=submit]:hover{
 
 .register-form {
   margin-inline: auto;
-  /*margin: 150px 438px 76px;*/
   padding: 0 3rem;
   border-radius: 12px;
   background-color: rgb(255, 255, 255, 0.9);
@@ -111,3 +110,5 @@ input[type=submit]:hover{
   justify-content: center;
   margin-top: 24px;
 }
+
+
