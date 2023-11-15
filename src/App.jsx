@@ -1,4 +1,4 @@
-import {SignUpForm} from "./components/SignUpForm.jsx";
+import {LoginForm} from "./components/LoginForm.jsx";
 
 
 function App() {
@@ -6,7 +6,7 @@ function App() {
 
   return (
     <>
-        <SignUpForm />
+        <LoginForm/>
     </>
   )
 }
