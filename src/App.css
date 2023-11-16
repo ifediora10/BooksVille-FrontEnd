@@ -3,7 +3,6 @@
   box-sizing: border-box;
   text-decoration: none;
   font-family: Hanalei Fill, serif;
-  /*color: black;*/
 }
 
 html {
@@ -110,5 +109,3 @@ input[type=submit]:hover{
   justify-content: center;
   margin-top: 24px;
 }
-
-
