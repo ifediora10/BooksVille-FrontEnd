@@ -1,4 +1,4 @@
-import {SignUpForm} from "./components/SignUpForm.jsx";
+import {JobSeekerCard} from "./components/JobSeekerCard.jsx";
 
 
 function App() {
@@ -6,7 +6,8 @@ function App() {
 
   return (
     <>
-        <SignUpForm />
+        {/*<SignUpForm />*/}
+        <JobSeekerCard/>
     </>
   )
 }
