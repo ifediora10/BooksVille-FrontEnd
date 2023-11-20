@@ -1,13 +1,10 @@
-import {ReviewApplication} from "./components/ReviewApplication.jsx";
-import {ApplicationProfileUpdate} from "./components/ApplicationProfileUpdate.jsx";
-import {FeatureButton} from "./components/FeatureButton.jsx";
-
+import {ResetPasswordEmail} from "./Components/ResetPasswordEmail.jsx";
 
 function App() {
 
   return (
       <>
-          <ReviewApplication/>
+          <ResetPasswordEmail/>
       </>
   )
 }
