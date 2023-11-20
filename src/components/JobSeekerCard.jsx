@@ -61,9 +61,9 @@ export const JobSeekerCard = () => {
                         src="https://cdn.builder.io/api/v1/image/assets/TEMP/fc160dbb-7e55-4e5e-944d-0294c09958f6?"
                         className="aspect-square object-contain object-center w-4 overflow-hidden shrink-0 max-w-full"
                     />
-                    <div className="text-blue-500 text-xs leading-4 tracking-normal whitespace-nowrap">
+                    <a href="mailto:emmanuelibenwankwo@gmail.com" className="cursor-pointer text-blue-500 text-xs leading-4 tracking-normal whitespace-nowrap">
                         Send Email
-                    </div>
+                    </a>
                 </div>
                 <div className="justify-between items-stretch rounded bg-emerald-100 flex gap-2 px-2.5 py-2">
                     <img
