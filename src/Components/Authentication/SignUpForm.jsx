@@ -1,12 +1,12 @@
 import * as React from "react";
-import "../../../App.css"
+import "../../App.css"
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import {useState} from "react";
-import axios from "../../../api/axios.jsx";
+import axios from "../../api/axios.jsx";
 import {Link, useNavigate} from "react-router-dom";
-import {SuccessCard} from "../../SuccessCard.jsx";
+import {SuccessCard} from "../utils/SuccessCard.jsx";
 import {ClipLoader} from "react-spinners";
-import {SweetAlert} from "../../utils/SweetAlert.jsx";
+import {SweetAlert} from "../utils/SweetAlert.jsx";
 
 export const SignUpForm = () => {
     const [clip, setClip] = useState(false);

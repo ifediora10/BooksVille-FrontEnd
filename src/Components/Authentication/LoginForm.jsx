@@ -1,11 +1,11 @@
 import * as React from "react";
-import "../../../App.css"
+import "../../App.css"
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import {useState} from "react";
-import axios from "../../../api/axios.jsx";
+import axios from "../../api/axios.jsx";
 import {Link, useNavigate} from "react-router-dom";
 import {ClipLoader} from "react-spinners";
-import {SweetAlert} from "../../utils/SweetAlert.jsx";
+import {SweetAlert} from "../utils/SweetAlert.jsx";
 
 export const LoginForm = () => {
     const [clip, setClip] = useState(false);

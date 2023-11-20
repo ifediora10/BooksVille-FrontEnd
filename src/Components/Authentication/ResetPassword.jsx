@@ -1,5 +1,5 @@
 import * as React from "react";
-import "../../../App.css"
+import "../../App.css"
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import {useState} from "react";
 import axios from "axios";
