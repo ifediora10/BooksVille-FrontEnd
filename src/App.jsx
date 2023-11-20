@@ -1,16 +1,12 @@
-//import {ForgotPassword} from "./component/ForgotPassword.jsx";
-import {ResetPassword} from "./Components/ResetPassword.jsx";
+import {ResetPasswordEmail} from "./Components/ResetPasswordEmail.jsx";
 
 function App() {
 
-
-    return (
-        <>
-            <div>
-                <ResetPassword/>
-            </div>
-        </>
-    )
+  return (
+      <>
+          <ResetPasswordEmail/>
+      </>
+  )
 }
 
 export default App
