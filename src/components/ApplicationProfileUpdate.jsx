@@ -7,7 +7,7 @@ export const ApplicationProfileUpdate = (props) => {
                 Contact Information
             </div>
 
-            <div className="text-blue-500 text-sm leading-5 tracking-normal whitespace-nowrap justify-center items-stretch bg-white w-[79px] max-w-full ml-4 mt-1 p-1 self-start max-md:ml-2.5">
+            <div className="relative top-2.5 text-blue-500 text-sm leading-5 tracking-normal whitespace-nowrap justify-center items-stretch bg-white w-[79px] max-w-full ml-4 mt-1 p-1 self-start max-md:ml-2.5">
                 First name
             </div>
             <input
@@ -17,7 +17,7 @@ export const ApplicationProfileUpdate = (props) => {
                 placeholder="First Name"
             />
 
-            <div className="text-blue-500 text-sm leading-5 tracking-normal whitespace-nowrap justify-center items-stretch bg-white w-[78px] max-w-full ml-4 mt-4 p-1 self-start max-md:ml-2.5">
+            <div className="relative top-2.5 text-blue-500 text-sm leading-5 tracking-normal whitespace-nowrap justify-center items-stretch bg-white w-[78px] max-w-full ml-4 mt-4 p-1 self-start max-md:ml-2.5">
                 Last name
             </div>
             <input
@@ -27,7 +27,7 @@ export const ApplicationProfileUpdate = (props) => {
                 placeholder="Last Name"
             />
 
-            <div className="text-blue-500 text-sm leading-5 tracking-normal whitespace-nowrap justify-center items-stretch bg-white w-[106px] max-w-full ml-4 mt-4 p-1 self-start max-md:ml-2.5">
+            <div className="relative top-2.5 text-blue-500 text-sm leading-5 tracking-normal whitespace-nowrap justify-center items-stretch bg-white w-[106px] max-w-full ml-4 mt-4 p-1 self-start max-md:ml-2.5">
                 Phone number
             </div>
             <input
@@ -37,7 +37,7 @@ export const ApplicationProfileUpdate = (props) => {
                 placeholder="Phone number"
             />
 
-            <div className="text-blue-500 text-sm leading-5 tracking-normal whitespace-nowrap justify-center items-stretch bg-white w-[104px] max-w-full ml-4 mt-4 p-1 self-start max-md:ml-2.5">
+            <div className="relative top-2.5 text-blue-500 text-sm leading-5 tracking-normal whitespace-nowrap justify-center items-stretch bg-white w-[104px] max-w-full ml-4 mt-4 p-1 self-start max-md:ml-2.5">
                 Email Address
             </div>
             <input
@@ -51,7 +51,7 @@ export const ApplicationProfileUpdate = (props) => {
                 Location Information
             </div>
 
-            <div className="text-blue-500 text-sm leading-5 tracking-normal whitespace-nowrap justify-center items-stretch bg-white aspect-[2.25] ml-4 mt-1 p-1 self-start max-md:ml-2.5">
+            <div className="relative top-2.5 text-blue-500 text-sm leading-5 tracking-normal whitespace-nowrap justify-center items-stretch bg-white aspect-[2.25] ml-4 mt-1 p-1 self-start max-md:ml-2.5">
                 Job title
             </div>
             <input
@@ -61,7 +61,7 @@ export const ApplicationProfileUpdate = (props) => {
                 placeholder="job title"
             />
 
-            <div className="text-blue-500 text-sm leading-5 tracking-normal whitespace-nowrap justify-center items-stretch bg-white aspect-[1.25] ml-4 mt-4 p-1 self-start max-md:ml-2.5">
+            <div className="relative top-2.5 text-blue-500 text-sm leading-5 tracking-normal whitespace-nowrap justify-center items-stretch bg-white aspect-[1.25] ml-4 mt-4 p-1 self-start max-md:ml-2.5">
                 City
             </div>
             <input
@@ -70,7 +70,7 @@ export const ApplicationProfileUpdate = (props) => {
                 className="text-black text-base leading-6 tracking-normal whitespace-nowrap rounded border border-[color:var(--Blue-1,#2F80ED)] self-stretch w-full px-4 py-2.5 border-solid max-md:max-w-full"
                 placeholder="city"
             />
-            <div className="text-blue-500 text-sm leading-5 tracking-normal whitespace-nowrap justify-center items-stretch bg-white aspect-[1.25] ml-4 mt-4 p-1 self-start max-md:ml-2.5">
+            <div className="relative top-2.5 text-blue-500 text-sm leading-5 tracking-normal whitespace-nowrap justify-center items-stretch bg-white aspect-[1.25] ml-4 mt-4 p-1 self-start max-md:ml-2.5">
                 LGA
             </div>
             <input
@@ -79,7 +79,7 @@ export const ApplicationProfileUpdate = (props) => {
                 className="text-black text-base leading-6 tracking-normal whitespace-nowrap rounded border border-[color:var(--Blue-1,#2F80ED)] self-stretch w-full px-4 py-2.5 border-solid max-md:max-w-full"
                 placeholder="LGA"
             />
-            <div className="text-blue-500 text-sm leading-5 tracking-normal whitespace-nowrap justify-center items-stretch bg-white aspect-[1.5714285714285714] ml-4 mt-4 p-1 self-start max-md:ml-2.5">
+            <div className="relative top-2.5 text-blue-500 text-sm leading-5 tracking-normal whitespace-nowrap justify-center items-stretch bg-white aspect-[1.5714285714285714] ml-4 mt-4 p-1 self-start max-md:ml-2.5">
                 State
             </div>
             <input
@@ -89,7 +89,7 @@ export const ApplicationProfileUpdate = (props) => {
                 placeholder="state"
             />
 
-            <div className="text-blue-500 text-sm leading-5 tracking-normal whitespace-nowrap justify-center items-stretch bg-white w-[88px] max-w-full ml-4 mt-4 p-1 self-start max-md:ml-2.5">
+            <div className="relative top-2.5 text-blue-500 text-sm leading-5 tracking-normal whitespace-nowrap justify-center items-stretch bg-white w-[88px] max-w-full ml-4 mt-4 p-1 self-start max-md:ml-2.5">
                 Postal code
             </div>
             <input
