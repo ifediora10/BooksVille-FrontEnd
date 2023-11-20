@@ -1,42 +1,113 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+* {
+  font-size: inherit;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: Hanalei Fill, serif;
+  /*color: black;*/
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+html {
+  margin: 0;
+  padding: 0;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+button,
+input[type=submit]{
+  font-size: 1.2rem;
+  color: #FCFCFD;
+  background: #2F80ED;
+
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+button:hover,
+input[type=submit]:hover{
+  transition: 0.3s;
+  background-color: #0056b3;
 }
 
-.card {
-  padding: 2em;
+.register-cont {
+  width: 100vw;
+  background: url("src/assets/MicrosoftTeams-image (9).png") no-repeat;
+  background-size: cover;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.read-the-docs {
-  color: #888;
+.register-form {
+  margin-inline: auto;
+  /*margin: 150px 438px 76px;*/
+  padding: 2rem 3rem;
+  border-radius: 12px;
+  background-color: rgb(255, 255, 255, 0.9);
+}
+
+.register-form label {
+  font-family: Hanalei Fill, serif;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%;
+  letter-spacing: 0.15px;
+  position: relative;
+  top: 1.15rem;
+  left: 0.8rem;
+  z-index: 1;
+  width: fit-content;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding-inline: 0.5em;
+}
+
+.register-form input,
+.select-tab {
+  padding: 8px 16px;
+}
+
+.select-tab {
+  height: 2.5rem;
+}
+
+.register-form .pass-input {
+  position: relative;
+}
+
+.password-toggle {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  cursor: pointer;
+  color: #007bff;
+}
+
+.logo img{
+  width: 4.5rem;
+  position: relative;
+  bottom: -0.5rem;
+  margin-right: 0.5rem;
+}
+
+.top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.gateway {
+  display: flex;
+  border-radius: 8px;
+  border: 1px solid #D0D5DD;
+  background: #FFF;
+  justify-content: center;
+  align-self: stretch;
+  padding: 12px 16px;
+  margin: 20px auto;
+  align-items: center;
+  gap: 10px;
+}
+
+.divider {
+  display: flex;
+  justify-content: center;
+  margin-top: 24px;
 }

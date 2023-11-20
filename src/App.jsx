@@ -1,16 +1,16 @@
-
-
+//import {ForgotPassword} from "./component/ForgotPassword.jsx";
+import {ResetPassword} from "./Components/ResetPassword.jsx";
 
 function App() {
-  
 
-  return (
-    <>
-      <div> 
-      <h1 className="text-green-700">Welcome to the SQD 17 live project!!!</h1>
-      </div>
-    </>
-  )
+
+    return (
+        <>
+            <div>
+                <ResetPassword/>
+            </div>
+        </>
+    )
 }
 
 export default App
