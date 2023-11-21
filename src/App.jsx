@@ -1,18 +1,16 @@
-import {LoginForm} from "./components/Authentication/LoginForm.jsx";
-import {Route, Routes} from "react-router-dom";
-import {JobSeekerProfile} from "./components/profile/jobseekerProfile/JobSeekerProfile.jsx";
+import {EmployerProfile} from "./components/profile/employerProfile/EmployerProfile.jsx";
+
 
 function App() {
 
+
   return (
     <>
-        <Routes>
-            <Route path="/jobseeker-signup" element={<SignUpForm/>}/>
-            <Route path="/" element={<LoginForm/>}/>
-            <Route path="/jsProfile" element={<JobSeekerProfile/>}/>
-        </Routes>
+        <EmployerProfile/>
     </>
   )
 }
 
 export default App
+
+

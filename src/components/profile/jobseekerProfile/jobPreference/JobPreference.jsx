@@ -4,6 +4,7 @@ import {WorkSchedule} from "./WorkSchedule.jsx";
 import {Salary} from "./Salary.jsx";
 import {WorkSetting} from "./WorkSetting.jsx";
 import {useState} from "react";
+import "../../../../App.css"
 
 export const JobPreference = () => {
     const [page, setPage] = useState("jobTitle")
