@@ -4,6 +4,7 @@ import {WorkSchedule} from "./WorkSchedule.jsx";
 import {Salary} from "./Salary.jsx";
 import {WorkSetting} from "./WorkSetting.jsx";
 import {useState} from "react";
+import "../../../../App.css"
 
 export const JobPreference = () => {
     const [page, setPage] = useState("jobTitle")
@@ -22,7 +23,6 @@ export const JobPreference = () => {
             <div className="gap-5 flex max-md:flex-col max-md:items-stretch max-md:gap-0">
                 <div className="flex flex-col items-stretch w-[39%] max-md:w-full max-md:ml-0">
                     <div className="items-stretch flex flex-col px-2 py-1 max-md:mt-10">
-
                         <Panel
                             btnName="Job Title"
                             handleClick={() => {setPage("jobTitle")}}
@@ -58,7 +58,6 @@ export const JobPreference = () => {
                         />
                     </div>
                 </div>
-
 
                 { page === "jobTitle" && <JobTitle/> }
                 { page === "workSchedule" && <WorkSchedule/> }

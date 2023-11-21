@@ -9,8 +9,8 @@ export const EmployerCompanyInfo = () => {
                 </div>
                 <input
                     type="text"
-                    name="firstName"
-                    placeholder=""
+                    name="companyName"
+                    placeholder="Decagon Institute"
                     className="text-black text-base leading-6 tracking-normal whitespace-nowrap rounded border border-[color:var(--Blue-1,#2F80ED)] self-stretch px-4 py-2.5 border-solid max-md:max-w-full"
                 />
 
@@ -19,8 +19,8 @@ export const EmployerCompanyInfo = () => {
                 </div>
                 <input
                     type="text"
-                    name="lastName"
-                    placeholder=""
+                    name="companyDescription"
+                    placeholder="Elite Software Engineering Institute"
                     className="text-black text-base leading-6 tracking-normal whitespace-nowrap rounded border border-[color:var(--Blue-1,#2F80ED)] self-stretch px-4 py-2.5 border-solid max-md:max-w-full"
                 />
 
@@ -28,9 +28,9 @@ export const EmployerCompanyInfo = () => {
                     Company's Address
                 </div>
                 <input
-                    type="tel"
-                    name="phoneNumber"
-                    placeholder=""
+                    type="text"
+                    name="companyAddress"
+                    placeholder="Edo Tech Park, Okhuromi"
                     className="text-black text-base leading-6 tracking-normal whitespace-nowrap rounded border border-[color:var(--Blue-1,#2F80ED)] self-stretch px-4 py-2.5 border-solid max-md:max-w-full"
                 />
 
@@ -38,9 +38,9 @@ export const EmployerCompanyInfo = () => {
                     City/State
                 </div>
                 <input
-                    type="email"
-                    name="email"
-                    placeholder=""
+                    type="text"
+                    name="city"
+                    placeholder="Benin/Edo"
                     className="text-black text-base leading-6 tracking-normal whitespace-nowrap rounded border border-[color:var(--Blue-1,#2F80ED)] self-stretch px-4 py-2.5 border-solid max-md:max-w-full"
                 />
 
@@ -50,7 +50,7 @@ export const EmployerCompanyInfo = () => {
                 <input
                     type="email"
                     name="email"
-                    placeholder=""
+                    placeholder="decagon@decagonhq.com"
                     className="text-black text-base leading-6 tracking-normal whitespace-nowrap rounded border border-[color:var(--Blue-1,#2F80ED)] self-stretch px-4 py-2.5 border-solid max-md:max-w-full"
                 />
 
@@ -58,9 +58,9 @@ export const EmployerCompanyInfo = () => {
                     Company's Industry
                 </div>
                 <input
-                    type="email"
-                    name="email"
-                    placeholder=""
+                    type="text"
+                    name="industry"
+                    placeholder="Technolgy"
                     className="text-black text-base leading-6 tracking-normal whitespace-nowrap rounded border border-[color:var(--Blue-1,#2F80ED)] self-stretch px-4 py-2.5 border-solid max-md:max-w-full"
                 />
 
@@ -68,9 +68,9 @@ export const EmployerCompanyInfo = () => {
                     Company Type
                 </div>
                 <input
-                    type="email"
-                    name="email"
-                    placeholder=""
+                    type="text"
+                    name="companyType"
+                    placeholder="Private"
                     className="text-black text-base leading-6 tracking-normal whitespace-nowrap rounded border border-[color:var(--Blue-1,#2F80ED)] self-stretch px-4 py-2.5 border-solid max-md:max-w-full"
                 />
 
@@ -78,9 +78,9 @@ export const EmployerCompanyInfo = () => {
                     Number of Employees
                 </div>
                 <input
-                    type="email"
-                    name="email"
-                    placeholder=""
+                    type="number"
+                    name="numOfEmployees"
+                    placeholder="1000"
                     className="text-black text-base leading-6 tracking-normal whitespace-nowrap rounded border border-[color:var(--Blue-1,#2F80ED)] self-stretch px-4 py-2.5 border-solid max-md:max-w-full"
                 />
 
@@ -88,9 +88,9 @@ export const EmployerCompanyInfo = () => {
                     Company's Website
                 </div>
                 <input
-                    type="email"
-                    name="email"
-                    placeholder="http://"
+                    type="text"
+                    name="website"
+                    placeholder="https://www.decagon.com"
                     className="text-black text-base leading-6 tracking-normal whitespace-nowrap rounded border border-[color:var(--Blue-1,#2F80ED)] self-stretch px-4 py-2.5 border-solid max-md:max-w-full"
                 />
 
@@ -98,9 +98,9 @@ export const EmployerCompanyInfo = () => {
                     Company's Linkdin Profile
                 </div>
                 <input
-                    type="email"
-                    name="email"
-                    placeholder="http://"
+                    type="text"
+                    name="linkedin"
+                    placeholder="https://www.linkedin.com/decagoninsitute"
                     className="text-black text-base leading-6 tracking-normal whitespace-nowrap rounded border border-[color:var(--Blue-1,#2F80ED)] self-stretch px-4 py-2.5 border-solid max-md:max-w-full"
                 />
 

@@ -3,7 +3,6 @@
   box-sizing: border-box;
   text-decoration: none;
   font-family: Hanalei Fill, serif;
-  /*color: black;*/
 }
 
 html {
@@ -113,7 +112,6 @@ input[type=submit]:hover{
 
 .profile-nav:hover {
   border-bottom: solid 2px;
-
 }
 
 .profile-nav {
@@ -124,5 +122,3 @@ input[type=submit]:hover{
   border-bottom: solid 2px rgb(59, 130, 246);
   color: rgb(59, 130, 246);
 }
-
-

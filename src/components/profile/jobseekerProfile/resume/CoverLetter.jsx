@@ -12,6 +12,7 @@ export const CoverLetter = () => {
 
         },
     });
+
     return(
         <form className="flex flex-col items-stretch w-[61%] ml-5 max-md:w-full max-md:ml-0">
             <div className="items-start flex grow flex-col max-md:max-w-full max-md:mt-10">
@@ -29,9 +30,9 @@ export const CoverLetter = () => {
                                 {file.name}
                             </li>
                         ))}
+                        <p className="text-blue-500 cursor-pointer">browse</p>
+                        <p className="text-gray-300">Maximum size is: 5MB</p>
                     </ul>
-                    <p className="text-blue-500 cursor-pointer">browse</p>
-                    <p className="text-gray-300">Maximum size is: 5MB</p>
                 </div>
 
                 <input

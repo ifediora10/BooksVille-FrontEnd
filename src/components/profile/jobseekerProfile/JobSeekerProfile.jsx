@@ -7,6 +7,7 @@ import {JobPreference} from "./jobPreference/JobPreference.jsx";
 import {PersonalInfo} from "./personalInfo/PersonalInfo.jsx";
 import {CV} from "./resume/CV.jsx";
 import {useState} from "react";
+import "../../../App.css"
 
 export const JobSeekerProfile = ()=> {
     const [page, setPage] = useState("personalInfo");

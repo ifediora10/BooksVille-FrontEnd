@@ -16,7 +16,7 @@ export const Resume = () => {
 
     return(
         <form className="flex flex-col items-stretch w-[61%] ml-5 max-md:w-full max-md:ml-0">
-            <div  className="items-start flex grow flex-col max-md:max-w-full max-md:mt-10">
+            <div className="items-start flex grow flex-col max-md:max-w-full max-md:mt-10">
                 <div className="text-gray-300 text-sm leading-5 tracking-normal whitespace-nowrap flex justify-start items-stretch bg-white self-start w-fit ">
                     drop your resume in the box below
                 </div>
@@ -30,9 +30,10 @@ export const Resume = () => {
                                 {file.name}
                             </li>
                         ))}
+
+                        <p className="text-blue-500 cursor-pointer">browse</p>
+                        <p className="text-gray-300">Maximum size is: 5MB</p>
                     </ul>
-                    <p className="text-blue-500 cursor-pointer">browse</p>
-                    <p className="text-gray-300">Maximum size is: 5MB</p>
                 </div>
 
                 <input

@@ -1,19 +1,13 @@
 import * as React from "react";
 import {EmployerTopheader} from "../profileComponents/EmployerTopheader.jsx";
 import {EmployerProfileMidheader} from "../profileComponents/EmployerProfileMidheader.jsx";
-
 import {useState} from "react";
 import {Panel} from "../profileComponents/Panel.jsx";
-
 import {EmployerCompanyInfo} from "./EmployerCompanyInfo.jsx";
 import {EmployerContactInfo} from "./EmployerContactInfo.jsx";
 
-export const EmployerProfile = ()=> {
+export const EmployerProfile = () => {
 
-    let profile = "src/assets/images/profile_image.svg"
-    let greendot = "src/assets/images/greendot.svg"
-
-    //////////////////////
     const [page, setPage] = useState("contact")
 
     let icon1 = "https://cdn.builder.io/api/v1/image/assets/TEMP/4aa16182-7439-4930-9f3d-507f913568da?apiKey=ecb6ce71cdf4467d9335c2f7dc302a16&"
@@ -33,7 +27,6 @@ export const EmployerProfile = ()=> {
         <div className="bg-white flex flex-col items-stretch">
            <EmployerTopheader/>
             <EmployerProfileMidheader/>
-            {/*<EmployerProfileBody/>*/}
 
             <div className="self-center w-[872px] max-w-full mt-12 mb-14 max-md:my-10">
                 <div className="gap-5 flex max-md:flex-col max-md:items-stretch max-md:gap-0">
@@ -62,7 +55,6 @@ export const EmployerProfile = ()=> {
 
                 </div>
             </div>
-
         </div>
     );
 }
