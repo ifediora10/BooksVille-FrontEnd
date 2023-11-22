@@ -1,4 +1,7 @@
 import {EmployerProfile} from "./components/profile/employerProfile/EmployerProfile.jsx";
+import {JobPostsFullPage} from "./Components/findJobPosts/JobPostsFullPage.jsx";
+import {JobPostSeeMore} from "./Components/findJobPosts/JobPostSeeMore.jsx";
+import {JobPostsForOneCompany} from "./Components/findJobPosts/JobPostsForOneCompany.jsx";
 
 
 function App() {
@@ -6,7 +9,10 @@ function App() {
 
   return (
     <>
-        <EmployerProfile/>
+        {/*<EmployerProfile/>*/}
+        <JobPostsFullPage />
+        {/*<JobPostSeeMore />*/}
+        {/*<JobPostsForOneCompany />*/}
     </>
   )
 }
