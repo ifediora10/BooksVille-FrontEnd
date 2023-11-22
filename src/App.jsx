@@ -7,8 +7,6 @@ import {ResetPassword} from "./components/Authentication/ResetPassword.jsx";
 import {EmployerProfile} from "./components/profile/employerProfile/EmployerProfile.jsx";
 
 function App() {
-
-
   return (
     <>
         <Routes>
