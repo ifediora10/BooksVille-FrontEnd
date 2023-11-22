@@ -1,19 +1,16 @@
 import {JobPostSearch} from "./JobPostSearch.jsx";
-import {JobseekerTopheader} from "../profile/profileComponents/JobseekerTopheader.jsx";
+import {JobSeekerTopHeader} from "../profile/profileComponents/JobSeekerTopHeader.jsx";
 
-export const JobPostSeeMore = ({companyName, jobTitle, logo, priceRange, jobDescription, state, country}) => {
+export const JobPostSeeMore = ({companyName, jobTitle, logo, priceRange, jobDescription, state, country, handleFindJobsOneCompany}) => {
     return (
         <div>
-
-            <JobseekerTopheader />
-
             <div className="gap-5 flex justify-center max-md:flex-col max-md:items-stretch max-md:gap-0">
                 <div className="flex flex-col items-stretch w-[58%] ml-5 max-md:w-full max-md:ml-0">
-                    <div className="self-center flex w-[781px] max-w-full flex-col mt-6 px-5">
+                    {/*<div className="self-center flex w-[781px] max-w-full flex-col mt-6 px-5">*/}
 
-                        <JobPostSearch/>
+                    {/*    <JobPostSearch/>*/}
 
-                    </div>
+                    {/*</div>*/}
 
 
                     <div className="items-start flex flex-col mt-5 px-5 max-md:max-w-full max-md:mt-10">
@@ -33,7 +30,7 @@ export const JobPostSeeMore = ({companyName, jobTitle, logo, priceRange, jobDesc
                             </div>
                             <div className="justify-between items-stretch flex gap-5 mt-2 max-md:max-w-full max-md:flex-wrap">
                                 <div className="items-stretch flex grow basis-[0%] flex-col">
-                                    <div className="text-blue-500 text-base leading-6 tracking-normal underline whitespace-nowrap">
+                                    <div onClick={handleFindJobsOneCompany} className="cursor-pointer hover:text-decoration-underline text-blue-500 text-base leading-6 tracking-normal underline whitespace-nowrap">
                                         {companyName}
                                         Decagon
                                     </div>
@@ -51,7 +48,6 @@ export const JobPostSeeMore = ({companyName, jobTitle, logo, priceRange, jobDesc
                                 ₦ 500,000 - ₦ 700,000/ per month
                             </div>
                             <div className="text-black text-base leading-6 tracking-normal whitespace-nowrap mt-2 mb-6 max-md:max-w-full">
-                                {/*{`${state}, ${country}`}*/}
                                 Edo, Nigeria
                             </div>
                         </div>
