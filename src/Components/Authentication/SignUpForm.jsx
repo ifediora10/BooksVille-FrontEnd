@@ -1,7 +1,7 @@
 import * as React from "react";
 import "../../App.css"
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import axios from "../../api/axios.jsx";
 import {Link, useNavigate} from "react-router-dom";
 import {SuccessCard} from "../utils/SuccessCard.jsx";
@@ -9,11 +9,25 @@ import {ClipLoader} from "react-spinners";
 import {SweetAlert} from "../utils/SweetAlert.jsx";
 
 export const SignUpForm = () => {
+    const [countries, setCountries] = useState([]);
+
+    useEffect(() => {
+        // Fetch countries from the endpoint
+        fetch('https://restcountries.com/v3.1/all')
+            .then(response => response.json())
+            .then(data => {
+
+                // Extract country names from the response
+                const countryNames = data.map(country => country.name.common);
+
+                setCountries(countryNames.sort());
+            })
+            .catch(error => console.error('Error fetching countries:', error));
+    }, []);
+
     const [clip, setClip] = useState(false);
 
     const [blur, setBlur] = useState("");
-
-    const [success, setSuccess] = useState(false);
 
     const navigate = useNavigate();
 
@@ -56,14 +70,14 @@ export const SignUpForm = () => {
             await axios.post('/auth/job-seeker/register', formData)
                 .then(result => {
 
+                    SweetAlert('success', 'Registration Successful', 'Your Registration is Successful, Please proceed to confirm your Email', 3000);
+                    setTimeout(() => {
+
                     setClip(false);
 
-                    SweetAlert('success', 'Hello!', 'This is a success message.');
-
-                    setTimeout(() => {
                         setBlur("");
-                        setSuccess(true);
-                    }, 1000)
+                        navigate("/")
+                    }, 3000)
 
                     // Handle success (redirect, show message, etc.)
                     console.log(result.data);
@@ -72,11 +86,11 @@ export const SignUpForm = () => {
         } catch (error) {
             setClip(false);
 
-            SweetAlert('error', 'Oops!', 'Something went wrong, Please try again', 2000);
+            SweetAlert('error', 'Oops!', 'Something went wrong, Please check your inputs and try again', 3000);
 
             setTimeout(() => {
                 setBlur("");
-            }, 2000)
+            }, 3000)
 
             // Handle error (display error message, log, etc.)
             console.error('Registration failed:', error.message);
@@ -92,16 +106,6 @@ export const SignUpForm = () => {
             }
 
             <div className={`register-cont ${blur}`}>
-
-            {success &&
-                <SuccessCard
-                    message="Account Registration successful!"
-                    bgColor="bg-black"
-                    details="Your account has been created successfully, Please visit your email to verify your account"
-                    buttonName="Return to Login"
-                    handleClick={() => {navigate("/")}}
-                />
-            }
 
             <form onSubmit={handleSubmit} className="register-form">
                 <div>
@@ -127,7 +131,7 @@ export const SignUpForm = () => {
                         <label htmlFor="firstName" className="block text-sm font-medium leading-6 text-gray-900">
                             First name
                         </label>
-                        <div className="mt-2">
+                        <div className="mt-1">
                             <input
                                 type="text"
                                 name="firstName"
@@ -143,7 +147,7 @@ export const SignUpForm = () => {
                         <label htmlFor="lastName" className="block text-sm font-medium leading-6 text-gray-900">
                             Last name
                         </label>
-                        <div className="mt-2">
+                        <div className="mt-1">
                             <input
                                 type="text"
                                 name="lastName"
@@ -159,7 +163,7 @@ export const SignUpForm = () => {
                         <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
                             Email address
                         </label>
-                        <div className="mt-2">
+                        <div className="mt-1">
                             <input
                                 id="email"
                                 name="email"
@@ -175,7 +179,7 @@ export const SignUpForm = () => {
                         <label htmlFor="password" className="block text-sm font-medium leading-6 text-gray-900">
                             Password
                         </label>
-                        <div className="mt-2 pass-input">
+                        <div className="mt-1 pass-input">
                             <input
                                 type={showPassword ? 'text' : 'password'}
                                 name="password"
@@ -196,7 +200,7 @@ export const SignUpForm = () => {
                         <label htmlFor="confirmPassword" className="block text-sm font-medium leading-6 text-gray-900">
                             Confirm Password
                         </label>
-                        <div className="mt-2 pass-input">
+                        <div className="mt-1 pass-input">
                             <input
                                 type={showConfirmPassword ? 'text' : 'password'}
                                 name="confirmPassword"
@@ -217,7 +221,7 @@ export const SignUpForm = () => {
                         <label htmlFor="address" className="block text-sm font-medium leading-6 text-gray-900">
                             Address
                         </label>
-                        <div className="mt-2">
+                        <div className="mt-1">
                             <input
                                 id="address"
                                 name="address"
@@ -233,7 +237,7 @@ export const SignUpForm = () => {
                         <label htmlFor="tel" className="block text-sm font-medium leading-6 text-gray-900">
                             Phone Number
                         </label>
-                        <div className="mt-2">
+                        <div className="mt-1">
                             <input
                                 type="tel"
                                 name="phoneNumber"
@@ -250,7 +254,7 @@ export const SignUpForm = () => {
                         <label htmlFor="gender" className="block text-sm font-medium leading-6 text-gray-900">
                             Gender
                         </label>
-                        <div className="mt-2">
+                        <div className="mt-1">
                             <select
                                 id="gender"
                                 name="gender"
@@ -273,24 +277,23 @@ export const SignUpForm = () => {
                         <label htmlFor="country" className="block text-sm font-medium leading-6 text-gray-900">
                             Country
                         </label>
-                        <div className="mt-2">
+                        <div className="mt-1">
                             <select
                                 id="country"
                                 name="country"
+                                value={formData.country}
                                 onChange={handleChange}
                                 autoComplete="country-name"
                                 required
                                 className="select-tab block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
                             >
-                                <option value="United States">
-                                    United States
-                                </option>
-                                <option value="Canada">
-                                    Canada
-                                </option>
-                                <option value="Mexico">
-                                    Mexico
-                                </option>
+                                <option value="" disabled> Select a country </option>
+
+                                { countries.map( country => (
+                                    <option key={ country } value={ country } style={{backgroundColor: "white"}}>
+                                        { country }
+                                    </option>
+                                ))}
                             </select>
                         </div>
                     </div>
@@ -299,7 +302,7 @@ export const SignUpForm = () => {
                         <label htmlFor="country" className="block text-sm font-medium leading-6 text-gray-900">
                             Date of birth
                         </label>
-                        <div className="mt-2">
+                        <div className="mt-1">
                             <input
                                 type="date"
                                 name="dateOfBirth"

@@ -8,6 +8,7 @@ import {ClipLoader} from "react-spinners";
 import {SweetAlert} from "../utils/SweetAlert.jsx";
 
 export const LoginForm = () => {
+
     const [clip, setClip] = useState(false);
 
     const [blur, setBlur] = useState("");
@@ -101,7 +102,7 @@ export const LoginForm = () => {
                             <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
                                 Email address
                             </label>
-                            <div className="mt-2">
+                            <div className="mt-1">
                                 <input
                                     id="email"
                                     name="email"
@@ -119,7 +120,7 @@ export const LoginForm = () => {
                             <label htmlFor="password" className="block text-sm font-medium leading-6 text-gray-900">
                                 Password
                             </label>
-                            <div className="mt-2 pass-input">
+                            <div className="mt-1 pass-input">
                                 <input
                                     type={showPassword ? 'text' : 'password'}
                                     name="password"
@@ -137,9 +138,9 @@ export const LoginForm = () => {
                         </div>
 
 
-                            <div className="col-span-full mt-2" style={{color: "#98A2B3"}}>
-                                    <h3><a href="#" style={{color: "#2F80ED"}}> Forgot password? </a></h3>
-                             </div>
+                        <div className="col-span-full mt-2" style={{color: "#98A2B3"}}>
+                            <h3><Link to="/forgot-password" style={{color: "#2F80ED"}}> Forgot password? </Link></h3>
+                        </div>
 
                         <div className="col-span-full">
                             <div className="mt-7">

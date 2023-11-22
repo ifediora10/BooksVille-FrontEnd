@@ -2,14 +2,35 @@ import * as React from "react";
 import "../../App.css"
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import {useState} from "react";
-import axios from "axios";
+import axios from "../../api/axios";
+
+import {Link, useLocation, useNavigate} from "react-router-dom";
+import {SweetAlert} from "../utils/SweetAlert.jsx";
+import {ClipLoader} from "react-spinners";
+import {SuccessCard} from "../utils/SuccessCard.jsx";
 
 export const ResetPassword = () => {
+    const location = useLocation();
+
+    const queryParams = new URLSearchParams(location.search);
+
+    const token = queryParams.get('token');
+
+
+
+    const [clip, setClip] = useState(false);
+
+    const [blur, setBlur] = useState("");
+
+    const [success, setSuccess] = useState(false);
+
+    const navigate = useNavigate();
 
     const [formData, setFormData] = useState({
 
-        password: '',
-        confirmPassword: '',
+        token: `${token}`,
+        newPassword: '',
+        confirmNewPassword: '',
 
     });
 
@@ -32,12 +53,34 @@ export const ResetPassword = () => {
         e.preventDefault();
 
         try {
+            setClip(true);
+            setBlur("opacity-[0.2]");
+
             // Make API call to your Java backend to handle user registration
-            await axios.post('', formData);
+            await axios.post('/auth/reset-forgot-password', formData)
+                .then(result => {
+                    console.log(result.data)
+
+                    setClip(false);
+
+                    SweetAlert('success', 'Password Reset Successful', 'You have successfully reset your password, you can proceed to login', 3000);
+
+                    setTimeout(() => {
+                        setBlur("");
+                    }, 3000)
+                });
 
             // Handle success (redirect, show message, etc.)
             console.log('Reset password successfully!');
         } catch (error) {
+            setClip(false);
+
+            SweetAlert('error', 'Oops!', 'Something went wrong, please try again', 2000);
+
+            setTimeout(() => {
+                setBlur("");
+            }, 2000);
+
             // Handle error (display error message, log, etc.)
             console.error('Reset password failed:', error.message);
         }
@@ -46,9 +89,24 @@ export const ResetPassword = () => {
     let googleImg="src/assets/Google.svg";
 
     return (
-        <div className="register-cont">
+        <div>
+            { clip &&
+                <ClipLoader color="#36D7B7" loading={true} size={100} className="absolute right-[46.5vw] top-[44vh]" />
+            }
 
-            <form className="register-form w-[40vw] py-3 px-8">
+            <div className={`register-cont ${blur}`}>
+
+                {success &&
+                    <SuccessCard
+                        message="Account Registration successful!"
+                        bgColor="bg-black"
+                        details="Your account has been created successfully, Please visit your email to verify your account"
+                        buttonName="Return to Login"
+                        handleClick={() => {navigate("/")}}
+                    />
+                }
+
+            <form onSubmit={handleSubmit} className="register-form w-[40vw] py-3 px-8">
                 <div>
                     <div className="top">
                         <div className="logo">
@@ -68,18 +126,18 @@ export const ResetPassword = () => {
                 </div>
 
                     <div className="sm:col-span-full">
-                        <label htmlFor="password" className="block text-sm font-medium leading-6 text-gray-900">
+                        <label htmlFor="newPassword" className="block text-sm font-medium leading-6 text-gray-900">
                             Password
                         </label>
                         <div className="mt-2 pass-input">
                             <input
                                 type={showPassword ? 'text' : 'password'}
-                                name="password"
-                                id="password"
-                                value={formData.password}
+                                name="newPassword"
+                                id="newPassword"
+                                value={formData.newPassword}
                                 onChange={handleChange}
                                 required
-                                autoComplete="given-name"
+                                autoComplete="password"
                                 className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                             />
                             <span className="password-toggle" onClick={handleTogglePassword}>
@@ -89,18 +147,18 @@ export const ResetPassword = () => {
                     </div>
 
                     <div className="sm:col-span-full">
-                        <label htmlFor="confirmPassword" className="block text-sm font-medium leading-6 text-gray-900">
+                        <label htmlFor="confirmNewPassword" className="block text-sm font-medium leading-6 text-gray-900">
                             Confirm Password
                         </label>
                         <div className="mt-2 pass-input">
                             <input
                                 type={showPassword ? 'text' : 'password'}
-                                name="confirmPassword"
-                                id="confirmPassword"
-                                value={formData.confirmPassword}
+                                name="confirmNewPassword"
+                                id="confirmNewPassword"
+                                value={formData.confirmNewPassword}
                                 onChange={handleChange}
                                 required
-                                autoComplete="given-name"
+                                autoComplete="confirmNewPassword"
                                 className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                             />
                             <span className="password-toggle" onClick={handleToggleConfirmPassword}>
@@ -120,7 +178,12 @@ export const ResetPassword = () => {
                             />
                         </div>
                     </div>
+
+                <div className="col-span-full text-center my-3" style={{color: "#98A2B3"}}>
+                    <h3>Go back to login page? <Link className="cursor-pointer" to="/" style={{color: "#2F80ED"}}> click here</Link></h3>
+                </div>
             </form>
+        </div>
         </div>
     );
 }
