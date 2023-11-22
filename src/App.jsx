@@ -4,8 +4,10 @@ import {JobSeekerProfile} from "./components/profile/jobseekerProfile/JobSeekerP
 import {ResetPasswordEmail} from "./components/Authentication/ResetPasswordEmail.jsx";
 import {SignUpForm} from "./components/Authentication/SignUpForm.jsx";
 import {ResetPassword} from "./components/Authentication/ResetPassword.jsx";
+import {EmployerProfile} from "./components/profile/employerProfile/EmployerProfile.jsx";
 
 function App() {
+
 
   return (
     <>
@@ -15,9 +17,12 @@ function App() {
             <Route path="/forgot-password" element={<ResetPasswordEmail/>}/>
             <Route path="/reset-forgot-password" element={<ResetPassword/>}/>
             <Route path="/jsProfile" element={<JobSeekerProfile/>}/>
+            <Route path="/emProfile" element={<EmployerProfile/>}/>
         </Routes>
     </>
   )
 }
 
 export default App
+
+

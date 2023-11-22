@@ -1,6 +1,18 @@
 import * as React from "react";
+import {useState} from "react";
+import {useDropzone} from "react-dropzone";
 
 export const CoverLetter = () => {
+    const [uploadedFiles, setUploadedFiles] = useState([]);
+    const { getRootProps, getInputProps } = useDropzone({
+        onDrop: (acceptedFiles) => {
+            setUploadedFiles(acceptedFiles);
+
+            // Call your backend API endpoint to upload files
+
+        },
+    });
+
     return(
         <form className="flex flex-col items-stretch w-[61%] ml-5 max-md:w-full max-md:ml-0">
             <div className="items-start flex grow flex-col max-md:max-w-full max-md:mt-10">
@@ -8,10 +20,19 @@ export const CoverLetter = () => {
                     drop your cover letter in the box below
                 </div>
 
-                <div className="w-[30vw] max-h-100 border-2 border-dashed border-gray-300 rounded-lg p-4 mb-4 mt-4 text-white text-center">
+                <div{...getRootProps()} className="w-[30vw] max-h-100 border-2 border-dashed border-gray-300 rounded-lg p-4 mb-4 mt-4 text-white text-center">
+                    <input {...getInputProps()} />
+
                     <p className="text-black">Drop your files here or </p>
-                    <p className="text-blue-500 cursor-pointer">browse</p>
-                    <p className="text-gray-300">Maximum size is: 5MB</p>
+                    <ul style={{ listStyle: 'none', padding: 0 }}>
+                        {uploadedFiles.map((file) => (
+                            <li key={file.name} style={{ marginBottom: '8px', padding: '4px', backgroundColor: '#888888', borderRadius: '4px' }}>
+                                {file.name}
+                            </li>
+                        ))}
+                        <p className="text-blue-500 cursor-pointer">browse</p>
+                        <p className="text-gray-300">Maximum size is: 5MB</p>
+                    </ul>
                 </div>
 
                 <input
