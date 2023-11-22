@@ -50,7 +50,7 @@ export const LoginForm = () => {
 
                     setTimeout(() => {
                         setBlur("");
-                        navigate("/jsProfile")
+                        navigate("/jobseeker-page")
                     }, 1000)
                 });
 

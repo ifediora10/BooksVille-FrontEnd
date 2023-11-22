@@ -1,10 +1,10 @@
 import * as React from "react";
-import {EmployerTopheader} from "../profileComponents/EmployerTopheader.jsx";
 import {EmployerProfileMidheader} from "../profileComponents/EmployerProfileMidheader.jsx";
 import {useState} from "react";
 import {Panel} from "../profileComponents/Panel.jsx";
 import {EmployerCompanyInfo} from "./EmployerCompanyInfo.jsx";
 import {EmployerContactInfo} from "./EmployerContactInfo.jsx";
+import {EmployerTopheader} from "../profileComponents/EmployerTopheader.jsx";
 
 export const EmployerProfile = () => {
 
@@ -25,7 +25,11 @@ export const EmployerProfile = () => {
 
     return (
         <div className="bg-white flex flex-col items-stretch">
-            <EmployerTopheader/>
+            <EmployerTopheader
+                handleFindCandidatePage={handleFindCandidatePage}
+                handleProfilePage={handleProfilePage}
+            />
+
             <EmployerProfileMidheader/>
 
             <div className="self-center w-[872px] max-w-full mt-12 mb-14 max-md:my-10">

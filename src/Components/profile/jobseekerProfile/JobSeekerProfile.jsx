@@ -14,7 +14,6 @@ export const JobSeekerProfile = ()=> {
 
     return (
         <div className="bg-white flex flex-col items-stretch h-[50rem]">
-            <EmployerTopheader/>
             <EmployerProfileMidheader/>
 
             <div className="justify-between self-center w-[872px] max-w-full mt-10 px-5">
