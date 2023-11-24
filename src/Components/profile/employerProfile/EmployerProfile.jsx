@@ -1,5 +1,5 @@
 import * as React from "react";
-import {EmployerProfileMidheader} from "../profileComponents/EmployerProfileMidheader.jsx";
+import {ProfileMidHeader} from "../profileComponents/ProfileMidHeader.jsx";
 import {useState} from "react";
 import {Panel} from "../profileComponents/Panel.jsx";
 import {EmployerCompanyInfo} from "./EmployerCompanyInfo.jsx";
@@ -30,7 +30,7 @@ export const EmployerProfile = () => {
                 handleProfilePage={handleProfilePage}
             />
 
-            <EmployerProfileMidheader/>
+            <ProfileMidHeader/>
 
             <div className="self-center w-[872px] max-w-full mt-12 mb-14 max-md:my-10">
                 <div className="gap-5 flex max-md:flex-col max-md:items-stretch max-md:gap-0">

@@ -1,7 +1,7 @@
 
 import * as React from "react";
 import {EmployerTopheader} from "../profileComponents/EmployerTopheader.jsx";
-import {EmployerProfileMidheader} from "../profileComponents/EmployerProfileMidheader.jsx";
+import {ProfileMidHeader} from "../profileComponents/ProfileMidHeader.jsx";
 import {Qualification} from "./qualification/Qualification.jsx";
 import {JobPreference} from "./jobPreference/JobPreference.jsx";
 import {PersonalInfo} from "./personalInfo/PersonalInfo.jsx";
@@ -9,12 +9,12 @@ import {CV} from "./resume/CV.jsx";
 import {useState} from "react";
 import "../../../App.css"
 
-export const JobSeekerProfile = ()=> {
+export const JobSeekerProfile = ({userData, setDep})=> {
     const [page, setPage] = useState("personalInfo");
 
     return (
         <div className="bg-white flex flex-col items-stretch h-[50rem]">
-            <EmployerProfileMidheader/>
+            <ProfileMidHeader userData={userData} />
 
             <div className="justify-between self-center w-[872px] max-w-full mt-10 px-5">
                 <div className="flex max-md:flex-col max-md:items-stretch max-md:gap-0 gap-5">
@@ -34,7 +34,7 @@ export const JobSeekerProfile = ()=> {
             </div>
 
             <div className="w-[860px] mx-auto mt-10">
-                {page === "personalInfo" && <PersonalInfo/> }
+                {page === "personalInfo" && <PersonalInfo setDep={setDep} /> }
                 {page === "cv" && <CV/> }
                 {page === "qualification" && <Qualification/> }
                 {page === "jobPreference" && <JobPreference/> }

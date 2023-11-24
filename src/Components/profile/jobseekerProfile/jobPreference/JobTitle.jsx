@@ -42,14 +42,14 @@ export const JobTitle = () => {
                             className="text-black text-base leading-6 tracking-normal whitespace-nowrap rounded border border-[color:var(--Blue-1,#2F80ED)] self-stretch px-4 py-2.5 border-solid max-md:max-w-full"
                         />
 
-                        {jobTitle.trim() !== "" && (
+                        {/*{jobTitle.trim() !== "" && (*/}
                             <input
                                 type="submit"
                                 name="submit"
                                 value="Save Changes"
-                                className="text-white text-base font-semibold leading-6 tracking-normal whitespace-nowrap justify-center items-stretch bg-blue-500 w-[145px] max-w-full mt-8 px-4 py-2 rounded-xl self-end cursor-pointer"
+                                className="text-white text-base font-semibold leading-6 tracking-normal whitespace-nowrap justify-center items-stretch bg-blue-500 w-fit max-w-full mt-8 px-4 py-2 rounded-xl self-end cursor-pointer"
                             />
-                        )}
+                        {/*)}*/}
                     </>
 
             </div>

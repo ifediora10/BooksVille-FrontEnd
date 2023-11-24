@@ -40,13 +40,14 @@ export const LoginForm = () => {
             // Make API call to your Java backend to handle user registration
             await axios.post('/auth/login', formData)
                 .then(result => {
-                    console.log(result.data)
+
+                    localStorage.setItem("token", result.data.data.accessToken);
+                    localStorage.setItem("firstname", result.data.data.firstName);
+                    localStorage.setItem("lastname", result.data.data.lastName);
 
                     setClip(false);
 
                     SweetAlert('success', 'Login Success', 'You have logged in successfully');
-
-                    localStorage.setItem("token", result.data.accessToken)
 
                     setTimeout(() => {
                         setBlur("");

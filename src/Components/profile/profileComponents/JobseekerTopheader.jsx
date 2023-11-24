@@ -15,7 +15,7 @@ export const JobSeekerTopHeader = ({handleFindJobPage, handleProfilePage}) => {
     const swiftLogo = "src/assets/images/swift_logo.svg";
 
     return (
-        <div className="justify-between items-stretch bg-white flex w-full gap-5 px-12 py-4 max-md:max-w-full max-md:flex-wrap max-md:px-5">
+        <div className="fixed justify-between items-stretch bg-white flex w-full gap-5 px-12 py-2 max-md:max-w-full max-md:flex-wrap max-md:px-5">
             <div className="text-blue-500 text-xl leading-7 tracking-normal my-auto">
                 <img className="w-14/14 h-20 cursor-pointer" src={swiftLogo} alt="Company Logo" />
             </div>

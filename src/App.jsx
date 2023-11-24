@@ -5,6 +5,7 @@ import {SignUpForm} from "./components/Authentication/SignUpForm.jsx";
 import {ResetPassword} from "./components/Authentication/ResetPassword.jsx";
 import {EmployerProfile} from "./components/profile/employerProfile/EmployerProfile.jsx";
 import {JobSeekerPage} from "./components/Pages/JobSeekerPage.jsx";
+import {Testing} from "./components/Testing.jsx";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
             <Route path="/reset-forgot-password" element={<ResetPassword/>}/>
             <Route path="/emProfile" element={<EmployerProfile/>}/>
             <Route path="/jobseeker-page" element={<JobSeekerPage/>}/>
+            <Route path="/test" element={<Testing/>}/>
         </Routes>
     </>
   )

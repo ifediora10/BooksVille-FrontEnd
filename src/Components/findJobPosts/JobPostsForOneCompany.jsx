@@ -15,7 +15,7 @@ export const JobPostsForOneCompany = ({companyName}) => {
     )
 
     return (
-        <div className="items-stretch flex flex-col mb-15">
+        <div className="items-stretch flex flex-col mb-15 max-w-[1000px] mx-auto">
             <div className="self-center flex w-[781px] max-w-full flex-col mt-6 px-5">
                 <JobPostSearch />
             </div>
@@ -49,8 +49,8 @@ export const JobPostsForOneCompany = ({companyName}) => {
                 jobs at PwC.
             </div>
 
-            <div className="w-full mt-6 pr-20 max-md:max-w-full max-md:pr-5">
-                <div className="gap-5 flex max-md:flex-col max-md:items-stretch max-md:gap-0">
+            <div className="w-full mt-6 mb-10 pr-20 max-md:max-w-full max-md:pr-5">
+                <div className="max-w-[1000px] flex justify-between p-[1.25rem] flex-wrap gap-10 max-md:flex-col max-md:items-stretch max-md:gap-0">
                     { details.map(
                         detail => (
 
