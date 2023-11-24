@@ -76,7 +76,7 @@ export const SignUpForm = () => {
                     setClip(false);
 
                         setBlur("");
-                        navigate("/")
+                        navigate("/login")
                     }, 3000)
 
                     // Handle success (redirect, show message, etc.)
@@ -328,7 +328,7 @@ export const SignUpForm = () => {
                     </div>
 
                     <div className="col-span-full text-center my-3" style={{color: "#98A2B3"}}>
-                        <h3>Already have an account? <Link className="cursor-pointer" to="/" style={{color: "#2F80ED"}}> Log in here</Link></h3>
+                        <h3>Already have an account? <Link className="cursor-pointer" to="/login" style={{color: "#2F80ED"}}> Log in here</Link></h3>
                     </div>
                 </div>
             </form>
