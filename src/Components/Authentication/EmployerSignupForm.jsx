@@ -1,13 +1,29 @@
 import * as React from "react";
 import "../../App.css"
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import axios from "../../api/axios";
 import {SweetAlert} from "../utils/SweetAlert.jsx";
 import {Link, useNavigate} from "react-router-dom";
 import {ClipLoader} from "react-spinners";
 
     export const EmployerSignUpForm = () => {
+        const [countries, setCountries] = useState([]);
+
+        useEffect(() => {
+            // Fetch countries from the endpoint
+            fetch('https://restcountries.com/v3.1/all')
+                .then(response => response.json())
+                .then(data => {
+
+                    // Extract country names from the response
+                    const countryNames = data.map(country => country.name.common);
+
+                    setCountries(countryNames.sort());
+                })
+                .catch(error => console.error('Error fetching countries:', error));
+        }, []);
+
         const [clip, setClip] = useState(false);
 
         const [blur, setBlur] = useState("");
@@ -59,6 +75,8 @@ import {ClipLoader} from "react-spinners";
                         SweetAlert("success", "Registration Successful", "Your Registration is successful, Please proceed to confirm your email", 3000)
 
                         setTimeout(() => {
+                            setClip(false);
+
                             setBlur("");
                             navigate("/login")
                         }, 3000)
@@ -69,6 +87,8 @@ import {ClipLoader} from "react-spinners";
                 // Handle success (redirect, show message, etc.)
                 console.log('User registered successfully!');
             } catch (error) {
+                setClip(false);
+
                 SweetAlert("error", "Oops!", "Something went wrong, please check the details and try again", 3000)
 
                 setTimeout(() => {
@@ -80,9 +100,20 @@ import {ClipLoader} from "react-spinners";
         };
 
         let googleImg="src/assets/Google.svg";
-        // let backgroundImg ="src/assets/MicrosoftTeams-image.png"
+
         return (
             <div>
+                <Link to="/" className="fixed bg-black top-[3rem] right-[1rem] cursor-pointer hover:bg-blue-500 justify-between items-stretch border-[color:var(--blue-600,#2563EB)] self-stretch flex gap-4 pl-7 pr-3 py-3 rounded-lg border-2 border-solid max-md:pl-5 my-auto max-h-[3rem]">
+                    <div className="text-white text-base font-medium leading-6 tracking-wide">
+                        Back to Home
+                    </div>
+                    <img
+                        loading="lazy"
+                        src="https://cdn.builder.io/api/v1/image/assets/TEMP/5062df1f-67ac-469a-801d-d6350c5b260d?"
+                        className="aspect-square object-contain object-center w-6 overflow-hidden shrink-0 max-w-full"
+                    />
+                </Link>
+
                 { clip &&
                     <ClipLoader color="#36D7B7" loading={true} size={100} className="absolute right-[46.5vw] top-[44vh]" />
                 }
@@ -312,10 +343,13 @@ import {ClipLoader} from "react-spinners";
                                     autoComplete="country-name"
                                     className="select-tab block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
                                 >
-                                    <option selected disabled></option>
-                                    <option>United States</option>
-                                    <option>Canada</option>
-                                    <option>Mexico</option>
+                                    <option value="" disabled> Select a country </option>
+
+                                    { countries.map( country => (
+                                        <option key={ country } value={ country } style={{backgroundColor: "white"}}>
+                                            { country }
+                                        </option>
+                                    ))}
                                 </select>
                             </div>
                         </div>

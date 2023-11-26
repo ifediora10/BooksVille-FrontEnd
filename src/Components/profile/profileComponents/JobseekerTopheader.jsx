@@ -50,7 +50,7 @@ export const JobSeekerTopHeader = ({handleFindJobPage, handleProfilePage}) => {
                     className="aspect-square object-contain object-center w-8 overflow-hidden self-center shrink-0 max-w-full my-auto cursor-pointer"
                     alt="notification"
                 />
-                {/*))}*/}
+
                 <div className="relative cursor-pointer">
                     <img
                         loading="lazy"

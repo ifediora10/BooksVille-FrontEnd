@@ -1,6 +1,5 @@
 
 import * as React from "react";
-import {EmployerTopheader} from "../profileComponents/EmployerTopheader.jsx";
 import {ProfileMidHeader} from "../profileComponents/ProfileMidHeader.jsx";
 import {Qualification} from "./qualification/Qualification.jsx";
 import {JobPreference} from "./jobPreference/JobPreference.jsx";
