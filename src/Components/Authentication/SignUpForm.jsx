@@ -4,7 +4,6 @@ import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import {useEffect, useState} from "react";
 import axios from "../../api/axios.jsx";
 import {Link, useNavigate} from "react-router-dom";
-import {SuccessCard} from "../utils/SuccessCard.jsx";
 import {ClipLoader} from "react-spinners";
 import {SweetAlert} from "../utils/SweetAlert.jsx";
 

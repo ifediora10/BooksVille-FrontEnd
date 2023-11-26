@@ -2,125 +2,126 @@ import * as React from "react";
 import "../../App.css"
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import {useEffect, useState} from "react";
-import axios from "../../api/axios";
-import {SweetAlert} from "../utils/SweetAlert.jsx";
+import axios from "../../api/axios.jsx";
 import {Link, useNavigate} from "react-router-dom";
 import {ClipLoader} from "react-spinners";
+import {SweetAlert} from "../utils/SweetAlert.jsx";
 
-    export const EmployerSignUpForm = () => {
-        const [countries, setCountries] = useState([]);
+export const EmployerSignUpForm = () => {
+    const [countries, setCountries] = useState([]);
 
-        useEffect(() => {
-            // Fetch countries from the endpoint
-            fetch('https://restcountries.com/v3.1/all')
-                .then(response => response.json())
-                .then(data => {
+    useEffect(() => {
+        // Fetch countries from the endpoint
+        fetch('https://restcountries.com/v3.1/all')
+            .then(response => response.json())
+            .then(data => {
 
-                    // Extract country names from the response
-                    const countryNames = data.map(country => country.name.common);
+                // Extract country names from the response
+                const countryNames = data.map(country => country.name.common);
 
-                    setCountries(countryNames.sort());
-                })
-                .catch(error => console.error('Error fetching countries:', error));
-        }, []);
+                setCountries(countryNames.sort());
+            })
+            .catch(error => console.error('Error fetching countries:', error));
+    }, []);
 
-        const [clip, setClip] = useState(false);
+    const [clip, setClip] = useState(false);
 
-        const [blur, setBlur] = useState("");
+    const [blur, setBlur] = useState("");
 
-        const navigate = useNavigate();
+    const navigate = useNavigate();
 
-        const [formData, setFormData] = useState({
-            firstName: '',
-            lastName: '',
-            email: '',
-            password: '',
-            confirmPassword: '',
-            phoneNumber: '',
-            companyDescription: '',
-            industry:'',
-            companyType:'',
-            address:'',
-            country: '',
-            city:'',
-            state:'',
-            companyName:''
-        });
+    const [formData, setFormData] = useState({
+        firstName: '',
+        lastName: '',
+        email: '',
+        password: '',
+        confirmPassword: '',
+        phoneNumber: '',
+        companyDescription: '',
+        industry:'',
+        companyType:'',
+        address:'',
+        country: '',
+        city:'',
+        state:'',
+        companyName:''
+    });
 
-        const [showPassword, setShowPassword] = useState(false);
-        const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+    const [showPassword, setShowPassword] = useState(false);
+    const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
-        const handleChange = (e) => {
-            setFormData({ ...formData, [e.target.name]: e.target.value });
-        };
+    const handleChange = (e) => {
+        setFormData({ ...formData, [e.target.name]: e.target.value });
+    };
 
-        const handleTogglePassword = () => {
-            setShowPassword(!showPassword);
-        };
+    const handleTogglePassword = () => {
+        setShowPassword(!showPassword);
+    };
 
-        const handleToggleConfirmPassword = () => {
-            setShowConfirmPassword(!showConfirmPassword);
-        };
+    const handleToggleConfirmPassword = () => {
+        setShowConfirmPassword(!showConfirmPassword);
+    };
 
-        const handleSubmit = async (e) => {
-            e.preventDefault();
+    const handleSubmit = async (e) => {
+        e.preventDefault();
 
-            try {
-                setClip(true);
-                setBlur("opacity-[0.2]");
+        try {
+            setClip(true);
+            setBlur("opacity-[0.2]");
 
-                // Make API call to your Java backend to handle user registration
-                await axios.post('/auth/employer/register', formData)
-                    .then(response => {
-                        SweetAlert("success", "Registration Successful", "Your Registration is successful, Please proceed to confirm your email", 3000)
+            // Make API call to your Java backend to handle user registration
+            await axios.post('/auth/employer/register', formData)
+                .then(result => {
+                    SweetAlert('success', 'Registration Successful', 'Your Registration is Successful, Please proceed to confirm your Email', 3000);
 
-                        setTimeout(() => {
-                            setClip(false);
+                    setTimeout(() => {
+                        setClip(false);
 
-                            setBlur("");
-                            navigate("/login")
-                        }, 3000)
+                        setBlur("");
+                        navigate("/login")
+                    }, 3000)
 
-                        console.log(response.data);
-                    })
+                    // Handle success (redirect, show message, etc.)
+                    console.log(result.data);
+                });
 
-                // Handle success (redirect, show message, etc.)
-                console.log('User registered successfully!');
-            } catch (error) {
-                setClip(false);
+        } catch (error) {
+            setClip(false);
 
-                SweetAlert("error", "Oops!", "Something went wrong, please check the details and try again", 3000)
+            SweetAlert('error', 'Oops!', 'Something went wrong, Please check your inputs and try again', 3000);
 
-                setTimeout(() => {
-                    setBlur("");
-                }, 3000)
-                // Handle error (display error message, log, etc.)
-                console.error('Registration failed:', error.message);
+            setTimeout(() => {
+                setBlur("");
+            }, 3000)
+
+
+            // Handle error (display error message, log, etc.)
+            console.error('Registration failed:', error.message);
+        }
+    };
+
+    let googleImg="src/assets/Google.svg";
+
+    return (
+        <div>
+            <Link to="/" className="fixed bg-black top-[3rem] right-[1rem] cursor-pointer hover:bg-blue-500 justify-between items-stretch border-[color:var(--blue-600,#2563EB)] self-stretch flex gap-4 pl-7 pr-3 py-3 rounded-lg border-2 border-solid max-md:pl-5 my-auto max-h-[3rem]">
+                <div className="text-white text-base font-medium leading-6 tracking-wide">
+                    Back to Home
+                </div>
+                <img
+                    loading="lazy"
+                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/5062df1f-67ac-469a-801d-d6350c5b260d?"
+                    className="aspect-square object-contain object-center w-6 overflow-hidden shrink-0 max-w-full"
+                />
+            </Link>
+
+            { clip &&
+                <ClipLoader color="#36D7B7" loading={true} size={100} className="absolute right-[46.5vw] top-[44vh]" />
             }
-        };
 
-        let googleImg="src/assets/Google.svg";
+            <div className={`register-cont ${blur}`}>
 
-        return (
-            <div>
-                <Link to="/" className="fixed bg-black top-[3rem] right-[1rem] cursor-pointer hover:bg-blue-500 justify-between items-stretch border-[color:var(--blue-600,#2563EB)] self-stretch flex gap-4 pl-7 pr-3 py-3 rounded-lg border-2 border-solid max-md:pl-5 my-auto max-h-[3rem]">
-                    <div className="text-white text-base font-medium leading-6 tracking-wide">
-                        Back to Home
-                    </div>
-                    <img
-                        loading="lazy"
-                        src="https://cdn.builder.io/api/v1/image/assets/TEMP/5062df1f-67ac-469a-801d-d6350c5b260d?"
-                        className="aspect-square object-contain object-center w-6 overflow-hidden shrink-0 max-w-full"
-                    />
-                </Link>
-
-                { clip &&
-                    <ClipLoader color="#36D7B7" loading={true} size={100} className="absolute right-[46.5vw] top-[44vh]" />
-                }
-
-                <div className={`register-cont ${blur}`}>
-
-                <form onSubmit={handleSubmit} className="register-form py-[2rem] my-[3rem]">
+                <form  onSubmit={handleSubmit} className="register-form py-[2rem] my-[3rem]">
                     <div>
                         <div className="top">
                             <div className="logo">
@@ -226,8 +227,8 @@ import {ClipLoader} from "react-spinners";
                                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
                                 <span className="password-toggle" onClick={handleTogglePassword}>
-                                {showPassword ? <FaEyeSlash /> : <FaEye />}
-                            </span>
+                                    {showPassword ? <FaEyeSlash /> : <FaEye />}
+                                </span>
                             </div>
                         </div>
 
@@ -247,8 +248,8 @@ import {ClipLoader} from "react-spinners";
                                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
                                 <span className="password-toggle" onClick={handleToggleConfirmPassword}>
-                                {showConfirmPassword ? <FaEyeSlash /> : <FaEye />}
-                            </span>
+                                    {showConfirmPassword ? <FaEyeSlash /> : <FaEye />}
+                                </span>
                             </div>
                         </div>
 
@@ -257,13 +258,14 @@ import {ClipLoader} from "react-spinners";
                                 Company Description
                             </label>
                             <div className="mt-1">
-                            <textarea
-                                name="companyDescription"
-                                value={formData.companyDescription}
-                                onChange={handleChange}
-                                id="company-description"
-                                className="p-[1rem] block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                            ></textarea>
+                                <textarea
+                                    name="companyDescription"
+                                    id="company-description"
+                                    value={formData.companyDescription}
+                                    onChange={handleChange}
+                                    autoComplete="street-address"
+                                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                ></textarea>
                             </div>
                         </div>
 
@@ -323,17 +325,17 @@ import {ClipLoader} from "react-spinners";
                                 >
 
                                     <option selected disabled></option>
-                                    <option>PRIVATE</option>
-                                    <option>PUBLIC</option>
-                                    <option>NON_PROFIT</option>
+                                    <option value="PRIVATE">PRIVATE</option>
+                                    <option value="PUBLIC">PUBLIC</option>
+                                    <option value="NON_PROFIT">NON_PROFIT</option>
                                 </select>
                             </div>
                         </div>
 
                         <div className="sm:col-span-2 sm:col-start-1">
-                            <label htmlFor="country" className="block text-sm font-medium leading-6 text-gray-900">
-                                Country
-                            </label>
+                        <label htmlFor="country" className="block text-sm font-medium leading-6 text-gray-900">
+                            Country
+                        </label>
                             <div className="mt-1">
                                 <select
                                     id="country"
@@ -341,6 +343,7 @@ import {ClipLoader} from "react-spinners";
                                     value={formData.country}
                                     onChange={handleChange}
                                     autoComplete="country-name"
+                                    required
                                     className="select-tab block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
                                 >
                                     <option value="" disabled> Select a country </option>
@@ -381,7 +384,7 @@ import {ClipLoader} from "react-spinners";
                                     name="state"
                                     value={formData.state}
                                     onChange={handleChange}
-                                    id="region"
+                                    id="state"
                                     autoComplete="address-level1"
                                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
@@ -389,7 +392,7 @@ import {ClipLoader} from "react-spinners";
                         </div>
 
                         <div className="col-span-full">
-                            <label htmlFor="street-address" className="block text-sm font-medium leading-6 text-gray-900">
+                            <label htmlFor="address" className="block text-sm font-medium leading-6 text-gray-900">
                                 Address
                             </label>
                             <div className="mt-1">
@@ -398,7 +401,7 @@ import {ClipLoader} from "react-spinners";
                                     name="address"
                                     value={formData.address}
                                     onChange={handleChange}
-                                    id="street-address"
+                                    id="address"
                                     autoComplete="street-address"
                                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
@@ -418,11 +421,11 @@ import {ClipLoader} from "react-spinners";
                         </div>
 
                         <div className="col-span-full text-center mt-2" style={{color: "#98A2B3"}}>
-                            <h3>Already have an account? <Link className="cursor-pointer" to="/login" style={{color: "#2F80ED"}}> Log in here</Link></h3>
+                            <h3>Already have an account? <a href="#" style={{color: "#2F80ED"}}> Log in here</a></h3>
                         </div>
                     </div>
                 </form>
             </div>
-            </div>
+        </div>
     );
 }
