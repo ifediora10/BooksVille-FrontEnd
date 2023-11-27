@@ -1,16 +1,19 @@
 import * as React from "react";
 
 
-export const EmployerProfileMidheader= () =>{
+export const ProfileMidHeader= ({userData}) => {
 
+
+    const firstName = userData.firstName;
+    const lastName = userData.lastName;
 
     return(
-        <div className="justify-between self-center w-[872px] max-w-full mt-6 px-5">
+        <div className="mt-[7rem] justify-between self-center w-[872px] max-w-full mt-6 px-5">
             <div className="gap-5 flex max-md:flex-col max-md:items-stretch max-md:gap-0">
                 <div className="flex flex-col items-stretch w-[57%] max-md:w-full max-md:ml-0">
                     <div
-                        className="text-black text-3xl font-medium leading-10 tracking-normal my-auto max-md:mt-10">
-                        AYOMIDE FATOGUN
+                        className="text-black text-4xl font-medium leading-10 tracking-normal my-auto max-md:mt-10">
+                        {`${firstName} ${lastName}`}
                     </div>
                 </div>
                 <div className="flex flex-col items-stretch w-[43%] ml-5 max-md:w-full max-md:ml-0">

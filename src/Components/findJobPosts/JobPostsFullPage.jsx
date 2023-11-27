@@ -1,10 +1,9 @@
 import {SortJobPosts} from "./SortJobPosts.jsx";
-import {JobSeekerTopHeader} from "../profile/profileComponents/JobSeekerTopHeader.jsx";
 import {JobPostCard} from "./JobPostCard.jsx";
 import {useState} from "react";
 import {JobPostHalfDisplay} from "./JobPostHalfDisplay.jsx";
 import {JobPostSearch} from "./JobPostSearch.jsx";
-import {JobPostSeeMore} from "./JobPostSeeMore.jsx";
+import {v4 as uuid} from "uuid";
 
 export const JobPostsFullPage = ({handleFindJobsOneCompany}) => {
     const [seeMore, setSeeMore] = useState(false)
@@ -55,6 +54,7 @@ export const JobPostsFullPage = ({handleFindJobsOneCompany}) => {
                                         detail => (
 
                                             <JobPostCard
+                                                key={uuid()}
                                                 handleFindJobsOneCompany={handleFindJobsOneCompany}
                                                 companyName={detail.companyName}
                                                 jobTitle={detail.jobTitle}

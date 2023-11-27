@@ -7,7 +7,7 @@ import {Link, useNavigate} from "react-router-dom";
 import {ClipLoader} from "react-spinners";
 import {SweetAlert} from "../utils/SweetAlert.jsx";
 
-export const LoginForm = () => {
+export const LoginForm = ({onAuth}) => {
 
     const [clip, setClip] = useState(false);
 
@@ -30,6 +30,7 @@ export const LoginForm = () => {
         setShowPassword(!showPassword);
     };
 
+
     const handleSubmit = async (e) => {
         e.preventDefault();
 
@@ -40,21 +41,27 @@ export const LoginForm = () => {
             // Make API call to your Java backend to handle user registration
             await axios.post('/auth/login', formData)
                 .then(result => {
-                    console.log(result.data)
+
+                    localStorage.setItem("token", result.data.data.accessToken);
+                    localStorage.setItem("firstname", result.data.data.firstName);
+                    localStorage.setItem("lastname", result.data.data.lastName);
+                    localStorage.setItem("email", result.data.data.email);
 
                     setClip(false);
 
                     SweetAlert('success', 'Login Success', 'You have logged in successfully');
 
-                    localStorage.setItem("token", result.data.accessToken)
-
                     setTimeout(() => {
                         setBlur("");
-                        navigate("/jobseeker-page")
+
+                        result.data.data.role === "EMPLOYER" ?
+                            navigate("/employer-page") :
+                            navigate("/jobseeker-page");
+
                     }, 1000)
                 });
 
-            console.log('User login successfully!');
+            console.log('User login successful!');
         } catch (error) {
             setClip(false);
 
@@ -73,6 +80,39 @@ export const LoginForm = () => {
 
     return (
         <div>
+            <Link to="/" className="fixed bg-black top-[3rem] right-[1rem] cursor-pointer hover:bg-blue-500 justify-between items-stretch border-[color:var(--blue-600,#2563EB)] self-stretch flex gap-4 pl-7 pr-3 py-3 rounded-lg border-2 border-solid max-md:pl-5 my-auto max-h-[3rem]">
+                <div className="text-white text-base font-medium leading-6 tracking-wide">
+                    Back to Home
+                </div>
+                <img
+                    loading="lazy"
+                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/5062df1f-67ac-469a-801d-d6350c5b260d?"
+                    className="aspect-square object-contain object-center w-6 overflow-hidden shrink-0 max-w-full"
+                />
+            </Link>
+
+            <Link to="/employer-signup" className="fixed bg-black top-[7rem] right-[1rem] cursor-pointer hover:bg-blue-500 justify-between items-stretch border-[color:var(--blue-600,#2563EB)] self-stretch flex gap-4 pl-7 pr-3 py-3 rounded-lg border-2 border-solid max-md:pl-5 my-auto max-h-[3rem]">
+                <div className="text-white text-base font-medium leading-6 tracking-wide">
+                    Employer Register
+                </div>
+                <img
+                    loading="lazy"
+                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/5062df1f-67ac-469a-801d-d6350c5b260d?"
+                    className="aspect-square object-contain object-center w-6 overflow-hidden shrink-0 max-w-full"
+                />
+            </Link>
+
+            <Link to="/jobseeker-signup" className="fixed bg-black top-[11rem] right-[1rem] cursor-pointer hover:bg-blue-500 justify-between items-stretch border-[color:var(--blue-600,#2563EB)] self-stretch flex gap-4 pl-7 pr-3 py-3 rounded-lg border-2 border-solid max-md:pl-5 my-auto max-h-[3rem]">
+                <div className="text-white text-base font-medium leading-6 tracking-wide">
+                    Job Seeker Register
+                </div>
+                <img
+                    loading="lazy"
+                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/5062df1f-67ac-469a-801d-d6350c5b260d?"
+                    className="aspect-square object-contain object-center w-6 overflow-hidden shrink-0 max-w-full"
+                />
+            </Link>
+
             { clip &&
                 <ClipLoader color="#36D7B7" loading={true} size={100} className="absolute right-[46.5vw] top-[44vh]" />
             }

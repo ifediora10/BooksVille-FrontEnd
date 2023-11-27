@@ -3,7 +3,7 @@ import {ContactInfo} from "./ContactInfo.jsx";
 import {LocationInfo} from "./LocationInfo.jsx";
 import {useState} from "react";
 
-export const PersonalInfo = () => {
+export const PersonalInfo = ({setDep}) => {
     const [page, setPage] = useState("contact")
 
     let icon1 = "https://cdn.builder.io/api/v1/image/assets/TEMP/4aa16182-7439-4930-9f3d-507f913568da?apiKey=ecb6ce71cdf4467d9335c2f7dc302a16&"
@@ -42,7 +42,7 @@ export const PersonalInfo = () => {
                     </div>
                 </div>
 
-                { page === "contact" && <ContactInfo/> }
+                { page === "contact" && <ContactInfo setDep={setDep} /> }
                 { page === "location" && <LocationInfo/> }
 
             </div>

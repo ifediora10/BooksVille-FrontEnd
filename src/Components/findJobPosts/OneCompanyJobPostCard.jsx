@@ -1,7 +1,7 @@
 export const OneCompanyJobPostCard = ({jobTitle, logo, date, priceRange, jobDescription, jobType, state, country}) => {
 
 return (
-<div className="flex flex-col items-stretch w-6/12 max-md:w-full max-md:ml-0">
+<div className="flex flex-col items-stretch max-w-[26rem] max-md:w-full max-md:ml-0">
     <div className="items-stretch shadow-lg bg-white flex w-full grow flex-col mx-auto p-6 rounded-xl max-md:mt-10 max-md:px-5">
         <div className="justify-between items-stretch flex gap-5">
             <div className="text-black text-xl font-semibold leading-7 tracking-normal grow shrink basis-auto">

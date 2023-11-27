@@ -1,7 +1,7 @@
 import * as React from "react";
 import {useState} from "react";
 
-export const EmployerTopheader = ({handleFindCandidatePage, handleProfilePage}) => {
+export const EmployerTopHeader = ({handleFindCandidatePage, handleProfilePage}) => {
     const [active, setActive] = useState("profile");
 
     const activePageToFindJobs = () => {

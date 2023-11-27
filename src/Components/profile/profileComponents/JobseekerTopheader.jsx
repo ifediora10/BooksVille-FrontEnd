@@ -1,5 +1,6 @@
 import * as React from "react";
 import {useState} from "react";
+import {Link} from "react-router-dom";
 
 export const JobSeekerTopHeader = ({handleFindJobPage, handleProfilePage}) => {
     const [active, setActive] = useState("findJobs");
@@ -15,7 +16,7 @@ export const JobSeekerTopHeader = ({handleFindJobPage, handleProfilePage}) => {
     const swiftLogo = "src/assets/images/swift_logo.svg";
 
     return (
-        <div className="justify-between items-stretch bg-white flex w-full gap-5 px-12 py-4 max-md:max-w-full max-md:flex-wrap max-md:px-5">
+        <div className="fixed justify-between items-stretch bg-white flex w-full gap-5 px-12 py-2 max-md:max-w-full max-md:flex-wrap max-md:px-5">
             <div className="text-blue-500 text-xl leading-7 tracking-normal my-auto">
                 <img className="w-14/14 h-20 cursor-pointer" src={swiftLogo} alt="Company Logo" />
             </div>
@@ -37,12 +38,14 @@ export const JobSeekerTopHeader = ({handleFindJobPage, handleProfilePage}) => {
             </div>
 
             <div className="items-stretch flex justify-between gap-5 max-md:justify-center">
-                <img
-                    loading="lazy"
-                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/4c7e0a42-5e50-438b-9071-3e586df5aa6b?apiKey=2a664b353843410292501e6f128833a4&"
-                    className="aspect-square object-contain object-center w-8 overflow-hidden self-center shrink-0 max-w-full my-auto cursor-pointer"
-                    alt="chat"
-                />
+                <Link to={"/chat"} className="aspect-square object-contain object-center w-8 overflow-hidden self-center shrink-0 max-w-full my-auto cursor-pointer" >
+                    <img
+                        loading="lazy"
+                        src="https://cdn.builder.io/api/v1/image/assets/TEMP/4c7e0a42-5e50-438b-9071-3e586df5aa6b?apiKey=2a664b353843410292501e6f128833a4&"
+                        className="aspect-square object-contain object-center w-8 overflow-hidden self-center shrink-0 max-w-full my-auto cursor-pointer"
+                        alt="chat"
+                    />
+                </Link>
 
                 <img
                     loading="lazy"
@@ -50,7 +53,7 @@ export const JobSeekerTopHeader = ({handleFindJobPage, handleProfilePage}) => {
                     className="aspect-square object-contain object-center w-8 overflow-hidden self-center shrink-0 max-w-full my-auto cursor-pointer"
                     alt="notification"
                 />
-                {/*))}*/}
+
                 <div className="relative cursor-pointer">
                     <img
                         loading="lazy"

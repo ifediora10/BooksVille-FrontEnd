@@ -102,7 +102,7 @@ export const ResetPassword = () => {
                         bgColor="bg-black"
                         details="Your account has been created successfully, Please visit your email to verify your account"
                         buttonName="Return to Login"
-                        handleClick={() => {navigate("/")}}
+                        handleClick={() => {navigate("/login")}}
                     />
                 }
 
@@ -180,7 +180,7 @@ export const ResetPassword = () => {
                     </div>
 
                 <div className="col-span-full text-center my-3" style={{color: "#98A2B3"}}>
-                    <h3>Go back to login page? <Link className="cursor-pointer" to="/" style={{color: "#2F80ED"}}> click here</Link></h3>
+                    <h3>Go back to login page? <Link className="cursor-pointer" to="/login" style={{color: "#2F80ED"}}> click here</Link></h3>
                 </div>
             </form>
         </div>

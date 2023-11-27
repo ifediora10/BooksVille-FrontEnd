@@ -80,7 +80,7 @@ export const ResetPasswordEmail = () => {
                         bgColor="bg-black"
                         details="A verification mail has been sent to your Email, Proceed to your Email for further Instructions"
                         buttonName="Return to Login"
-                        handleClick={() => {navigate("/")}}
+                        handleClick={() => {navigate("/login")}}
                     />
                 }
 
@@ -134,7 +134,7 @@ export const ResetPasswordEmail = () => {
                     </div>
 
                     <div className="col-span-full text-center my-3" style={{color: "#98A2B3"}}>
-                        <h3>Go back to login <Link className="cursor-pointer" to="/" style={{color: "#2F80ED"}}> Log in here</Link></h3>
+                        <h3>Go back to login <Link className="cursor-pointer" to="/login" style={{color: "#2F80ED"}}> Log in here</Link></h3>
                     </div>
                 </form>
             </div>

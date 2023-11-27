@@ -4,11 +4,11 @@ import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import {useEffect, useState} from "react";
 import axios from "../../api/axios.jsx";
 import {Link, useNavigate} from "react-router-dom";
-import {SuccessCard} from "../utils/SuccessCard.jsx";
 import {ClipLoader} from "react-spinners";
 import {SweetAlert} from "../utils/SweetAlert.jsx";
 
-export const SignUpForm = () => {
+export const JobSeekerSignUpForm = () => {
+
     const [countries, setCountries] = useState([]);
 
     useEffect(() => {
@@ -59,6 +59,15 @@ export const SignUpForm = () => {
         setShowConfirmPassword(!showConfirmPassword);
     };
 
+    const chatReg = async (e) => {
+        e.preventDefault()
+
+        await axios.post("/chat/signup", formData)
+            .then(result => console.log({...result.data}))
+            .catch(e => console.log(JSON.stringify(e.response.data)))
+    };
+
+
     const handleSubmit = async (e) => {
         e.preventDefault();
 
@@ -69,20 +78,22 @@ export const SignUpForm = () => {
             // Make API call to your Java backend to handle user registration
             await axios.post('/auth/job-seeker/register', formData)
                 .then(result => {
-
                     SweetAlert('success', 'Registration Successful', 'Your Registration is Successful, Please proceed to confirm your Email', 3000);
-                    setTimeout(() => {
 
-                    setClip(false);
+                    setTimeout(() => {
+                        setClip(false);
 
                         setBlur("");
-                        navigate("/")
+                        navigate("/login")
                     }, 3000)
+
+                    chatReg(e);
 
                     // Handle success (redirect, show message, etc.)
                     console.log(result.data);
                 });
 
+            console.log('User registered successfully!');
         } catch (error) {
             setClip(false);
 
@@ -101,13 +112,24 @@ export const SignUpForm = () => {
 
     return (
         <div>
+            <Link to="/" className="fixed bg-black top-[3rem] right-[1rem] cursor-pointer hover:bg-blue-500 justify-between items-stretch border-[color:var(--blue-600,#2563EB)] self-stretch flex gap-4 pl-7 pr-3 py-3 rounded-lg border-2 border-solid max-md:pl-5 my-auto max-h-[3rem]">
+                <div className="text-white text-base font-medium leading-6 tracking-wide">
+                    Back to Home
+                </div>
+                <img
+                    loading="lazy"
+                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/5062df1f-67ac-469a-801d-d6350c5b260d?"
+                    className="aspect-square object-contain object-center w-6 overflow-hidden shrink-0 max-w-full"
+                />
+            </Link>
+
             { clip &&
                 <ClipLoader color="#36D7B7" loading={true} size={100} className="absolute right-[46.5vw] top-[44vh]" />
             }
 
             <div className={`register-cont ${blur}`}>
 
-            <form onSubmit={handleSubmit} className="register-form">
+            <form onSubmit={handleSubmit} className="register-form py-[2rem] my-[3rem]">
                 <div>
                     <div className="top">
                         <div className="logo">
@@ -115,7 +137,7 @@ export const SignUpForm = () => {
                         </div>
                         <h1 className="text-center font-semibold text-4xl" style={{color: "#044194"}}>SwiftSelect</h1>
                     </div>
-                    <h2 className="text-center font-semibold text-2xl">Create a new account</h2>
+                    <h2 className="text-center font-semibold text-2xl">Job Seeker Register</h2>
                 </div>
 
                 <div className="gateway sm:col-span-full">
@@ -328,7 +350,7 @@ export const SignUpForm = () => {
                     </div>
 
                     <div className="col-span-full text-center my-3" style={{color: "#98A2B3"}}>
-                        <h3>Already have an account? <Link className="cursor-pointer" to="/" style={{color: "#2F80ED"}}> Log in here</Link></h3>
+                        <h3>Already have an account? <Link className="cursor-pointer" to="/login" style={{color: "#2F80ED"}}> Log in here</Link></h3>
                     </div>
                 </div>
             </form>
