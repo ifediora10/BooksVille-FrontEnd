@@ -7,7 +7,7 @@ import {Link, useNavigate} from "react-router-dom";
 import {ClipLoader} from "react-spinners";
 import {SweetAlert} from "../utils/SweetAlert.jsx";
 
-export const LoginForm = () => {
+export const LoginForm = ({onAuth}) => {
 
     const [clip, setClip] = useState(false);
 
@@ -30,6 +30,7 @@ export const LoginForm = () => {
         setShowPassword(!showPassword);
     };
 
+
     const handleSubmit = async (e) => {
         e.preventDefault();
 
@@ -44,6 +45,7 @@ export const LoginForm = () => {
                     localStorage.setItem("token", result.data.data.accessToken);
                     localStorage.setItem("firstname", result.data.data.firstName);
                     localStorage.setItem("lastname", result.data.data.lastName);
+                    localStorage.setItem("email", result.data.data.email);
 
                     setClip(false);
 
@@ -55,10 +57,11 @@ export const LoginForm = () => {
                         result.data.data.role === "EMPLOYER" ?
                             navigate("/employer-page") :
                             navigate("/jobseeker-page");
+
                     }, 1000)
                 });
 
-            console.log('User login successfully!');
+            console.log('User login successful!');
         } catch (error) {
             setClip(false);
 

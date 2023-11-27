@@ -62,6 +62,14 @@ export const EmployerSignUpForm = () => {
         setShowConfirmPassword(!showConfirmPassword);
     };
 
+    const chatReg = async (e) => {
+        e.preventDefault()
+
+        await axios.post("/chat/signup", formData)
+            .then(result => console.log({...result.data}))
+            .catch(e => console.log(JSON.stringify(e.response.data)))
+    };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
 
@@ -80,6 +88,8 @@ export const EmployerSignUpForm = () => {
                         setBlur("");
                         navigate("/login")
                     }, 3000)
+
+                    chatReg(e)
 
                     // Handle success (redirect, show message, etc.)
                     console.log(result.data);

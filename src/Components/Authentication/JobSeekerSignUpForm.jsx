@@ -7,7 +7,8 @@ import {Link, useNavigate} from "react-router-dom";
 import {ClipLoader} from "react-spinners";
 import {SweetAlert} from "../utils/SweetAlert.jsx";
 
-export const SignUpForm = () => {
+export const JobSeekerSignUpForm = () => {
+
     const [countries, setCountries] = useState([]);
 
     useEffect(() => {
@@ -58,6 +59,15 @@ export const SignUpForm = () => {
         setShowConfirmPassword(!showConfirmPassword);
     };
 
+    const chatReg = async (e) => {
+        e.preventDefault()
+
+        await axios.post("/chat/signup", formData)
+            .then(result => console.log({...result.data}))
+            .catch(e => console.log(JSON.stringify(e.response.data)))
+    };
+
+
     const handleSubmit = async (e) => {
         e.preventDefault();
 
@@ -76,6 +86,8 @@ export const SignUpForm = () => {
                         setBlur("");
                         navigate("/login")
                     }, 3000)
+
+                    chatReg(e);
 
                     // Handle success (redirect, show message, etc.)
                     console.log(result.data);
