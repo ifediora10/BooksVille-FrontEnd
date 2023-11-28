@@ -9,12 +9,16 @@ import {LandingPage} from "./components/Pages/landingPage/LandingPage.jsx";
 import {EmployerPage} from "./components/Pages/EmployerPage.jsx";
 import {ChatPage} from "./components/Pages/ChatPage.jsx";
 import {useState} from "react";
+import {PostQualificationMain} from "./Components/PostQualification/PostQualificationMain.jsx";
+
 
 function App() {
     const [user, setUser] = useState();
 
   return (
     <>
+        <PostQualificationMain/>
+
         <Routes>
             <Route path="/" element={<LandingPage/>}/>
             <Route path="/login" element={<LoginForm onAuth={user => setUser(user)}/>}/>
