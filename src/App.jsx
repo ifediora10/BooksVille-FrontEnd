@@ -19,17 +19,17 @@ function App() {
     <>
         <PostQualificationMain/>
 
-        <Routes>
-            <Route path="/" element={<LandingPage/>}/>
-            <Route path="/login" element={<LoginForm onAuth={user => setUser(user)}/>}/>
-            <Route path="/jobseeker-signup" element={<JobSeekerSignUpForm/>}/>
-            <Route path="/employer-signup" element={<EmployerSignUpForm/>}/>
-            <Route path="/forgot-password" element={<ResetPasswordEmail/>}/>
-            <Route path="/reset-forgot-password" element={<ResetPassword/>}/>
-            <Route path="/employer-page" element={<EmployerPage/>}/>
-            <Route path="/jobseeker-page" element={<JobSeekerPage/>}/>
-            <Route path="/chat" element={<ChatPage user={user} />}/>
-        </Routes>
+        {/*<Routes>*/}
+        {/*    <Route path="/" element={<LandingPage/>}/>*/}
+        {/*    <Route path="/login" element={<LoginForm onAuth={user => setUser(user)}/>}/>*/}
+        {/*    <Route path="/jobseeker-signup" element={<JobSeekerSignUpForm/>}/>*/}
+        {/*    <Route path="/employer-signup" element={<EmployerSignUpForm/>}/>*/}
+        {/*    <Route path="/forgot-password" element={<ResetPasswordEmail/>}/>*/}
+        {/*    <Route path="/reset-forgot-password" element={<ResetPassword/>}/>*/}
+        {/*    <Route path="/employer-page" element={<EmployerPage/>}/>*/}
+        {/*    <Route path="/jobseeker-page" element={<JobSeekerPage/>}/>*/}
+        {/*    <Route path="/chat" element={<ChatPage user={user} />}/>*/}
+        {/*</Routes>*/}
     </>
   )
 }
