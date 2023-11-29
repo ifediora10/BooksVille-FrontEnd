@@ -32,7 +32,7 @@ export const JobInformation = () => {
                 type="text"
                 name="Location to post this job"
                 className="text-black text-base leading-6 tracking-normal whitespace-nowrap rounded border border-[color:var(--Blue-1,#2F80ED)] self-center w-[500px] max-w-full px-4 py-2.5 border-solid"
-                placeholder="Location to post this job"
+                placeholder="State/Country"
             />
 
 
@@ -42,9 +42,9 @@ export const JobInformation = () => {
 
             <div className="justify-end items-stretch rounded border self-center flex w-[500px] border-[color:var(--Blue-1,#2F80ED)] max-w-full gap-5 border-solid max-md:flex-wrap">
                 <select className="flex justify-end items-stretch rounded self-center w-[500px] max-w-full px-4 py-2.5 max-md:flex-wrap pr-5">
-                    <option value="REMOTE">Remote</option>
-                    <option value="HYBRID">Hybrid</option>
-                    <option value="ON_SITE">On-Site</option>
+                    <option value="REMOTE">REMOTE</option>
+                    <option value="HYBRID">HYBRID</option>
+                    <option value="ON_SITE">ON SITE</option>
                 </select>
             </div>
 
