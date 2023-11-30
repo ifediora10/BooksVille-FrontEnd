@@ -9,7 +9,7 @@ import {LandingPage} from "./components/Pages/landingPage/LandingPage.jsx";
 import {EmployerPage} from "./components/Pages/EmployerPage.jsx";
 import {ChatPage} from "./components/Pages/ChatPage.jsx";
 import {useState} from "react";
-import {PostQualificationMain} from "./Components/PostQualification/PostQualificationMain.jsx";
+import {PostQualificationMain} from "./components/PostQualification/PostQualificationMain.jsx";
 
 
 function App() {
