@@ -7,7 +7,7 @@ import {Licenses} from "./Licenses.jsx";
 import {Certifications} from "./Certifications.jsx";
 import {Languages} from "./Languages.jsx";
 
-export const Qualification = () => {
+export const Qualification = ({userData}) => {
     const [page, setPage] = useState("workExperience")
 
     let icon1 = "https://cdn.builder.io/api/v1/image/assets/TEMP/f5172a27-1a8b-4df7-8986-f48ab6489ff4?apiKey=ecb6ce71cdf4467d9335c2f7dc302a16&"
@@ -83,12 +83,12 @@ export const Qualification = () => {
                     </div>
                 </div>
 
-                { page === "workExperience" && <WorkExperience/> }
-                { page === "education" && <Education/> }
-                { page === "skills" && <Skills/> }
-                { page === "licenses" && <Licenses/> }
-                { page === "certifications" && <Certifications/> }
-                { page === "languages" && <Languages/> }
+                { page === "workExperience" && <WorkExperience userData={userData} /> }
+                { page === "education" && <Education userData={userData} /> }
+                { page === "skills" && <Skills userData={userData} /> }
+                { page === "licenses" && <Licenses userData={userData} /> }
+                { page === "certifications" && <Certifications userData={userData} /> }
+                { page === "languages" && <Languages userData={userData} /> }
 
             </div>
         </div>

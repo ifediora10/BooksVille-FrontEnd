@@ -5,11 +5,9 @@ import {JobPostsForOneCompany} from "../findJobPosts/JobPostsForOneCompany.jsx";
 import {useEffect, useState} from "react";
 import {JobSeekerTopHeader} from "../profile/profileComponents/JobSeekerTopHeader.jsx";
 import axios from "../../api/axios.jsx";
-import {ChatPage} from "./ChatPage.jsx";
-import {Route} from "react-router-dom";
 
 export const JobSeekerPage = () => {
-    const [userData, setUserData] = useState()
+
     const [dep, setDep] = useState(false)
 
     useEffect(() => {
@@ -26,8 +24,13 @@ export const JobSeekerPage = () => {
             )
         }
 
-        fetchData();
+        fetchData()
+
     }, [dep]);
+
+
+    const [userData, setUserData] = useState();
+
 
     const [page, setPage] = useState("find-jobs")
 
@@ -52,9 +55,15 @@ export const JobSeekerPage = () => {
             <JobSeekerTopHeader
                 handleFindJobPage={handleFindJobPage}
                 handleProfilePage={handleProfilePage}
+                userData={userData}
             />
 
-            { page === "find-jobs" && <JobPostsFullPage handleSeeMore={handleSeeMore} handleFindJobsOneCompany={handleFindJobsOneCompany} /> }
+            { page === "find-jobs" && <JobPostsFullPage
+                handleSeeMore={handleSeeMore}
+                handleFindJobsOneCompany={handleFindJobsOneCompany}
+                userData={userData}
+            /> }
+
             { page === "find-jobs-see-more" && <JobPostSeeMore handleFindJobsOneCompany={handleFindJobsOneCompany} /> }
             { page === "find-jobs-one-company" && <JobPostsForOneCompany companyName="Decagon Institute"/> }
             { page === "jobSeeker-profile" && <JobSeekerProfile setDep={() => {setDep(!dep)}} userData={userData} /> }

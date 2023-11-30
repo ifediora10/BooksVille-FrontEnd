@@ -1,9 +1,12 @@
 import * as React from "react";
 import {useState} from "react";
 import {Link} from "react-router-dom";
+import {ProfilePopUp} from "../../utils/ProfilePopUp.jsx";
 
-export const JobSeekerTopHeader = ({handleFindJobPage, handleProfilePage}) => {
+export const JobSeekerTopHeader = ({handleFindJobPage, handleProfilePage, userData}) => {
     const [active, setActive] = useState("findJobs");
+
+    const [profileClick, setProfileCLick] = useState(false);
 
     const activePageToFindJobs = () => {
         setActive("findJobs");
@@ -54,16 +57,22 @@ export const JobSeekerTopHeader = ({handleFindJobPage, handleProfilePage}) => {
                     alt="notification"
                 />
 
-                <div className="relative cursor-pointer">
+                <div onClick={() => (setProfileCLick(!profileClick))} className="relative cursor-pointer">
                     <img
                         loading="lazy"
-                        src="src/assets/images/sundaysvg.svg"
+                        src={`${localStorage.getItem("profilePicture")}`}
                         className="aspect-square object-cover object-center w-[60px] h-[60px] rounded-full"
                         alt="Your alt text"
                     />
                     <div className="absolute bottom-5 right-2 w-2.5 h-2.5 bg-green-500 rounded-full"></div>
                 </div>
             </div>
+
+            { profileClick &&
+                <div className="absolute right-[2rem] top-[5.4rem] shadow-2xl">
+                    <ProfilePopUp/>
+                </div>
+            }
         </div>
     )
 };

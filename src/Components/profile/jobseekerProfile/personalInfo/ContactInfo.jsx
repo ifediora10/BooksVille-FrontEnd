@@ -3,11 +3,11 @@ import axios from "../../../../api/axios.jsx";
 import {useState} from "react";
 import {SweetAlert} from "../../../utils/SweetAlert.jsx";
 
-export const ContactInfo = ({setDep}) => {
+export const ContactInfo = ({setDep, userData}) => {
     const [formData, setFormData] = useState({
-        firstName: '',
-        lastName: '',
-        phoneNumber: ''
+        firstName: `${userData.firstName}`,
+        lastName: `${userData.lastName}`,
+        phoneNumber: `${userData.phoneNumber}`
     })
 
     const handleChange = (e) => {

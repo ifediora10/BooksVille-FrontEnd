@@ -3,12 +3,12 @@ import {useState} from "react";
 import axios from "../../../../api/axios.jsx";
 import {SweetAlert} from "../../../utils/SweetAlert.jsx";
 
-export const LocationInfo = () => {
+export const LocationInfo = ({setDep, userData}) => {
     const [formData, setFormData] = useState({
-        address: "",
-        state: "",
-        city: "",
-        postalCode: ""
+        address: `${userData.address}`,
+        state: `${userData.state}`,
+        city: `${userData.city}`,
+        postalCode: `${userData.postalCode}`
     })
 
     const handleChange = (e) => {
@@ -29,6 +29,9 @@ export const LocationInfo = () => {
                     console.log(result.data.data)
                 }
             )
+
+            // Trigger the UseEffect in the JobSeeker Component to effect user's details
+            setDep();
         } catch (error) {
             SweetAlert('error', 'Oops!', 'Something went wrong please try again', 2000);
             console.log(error.message)

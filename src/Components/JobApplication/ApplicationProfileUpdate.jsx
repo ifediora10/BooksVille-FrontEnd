@@ -7,7 +7,7 @@ export const ApplicationProfileUpdate = (props) => {
                 Contact Information
             </div>
 
-            <div className="relative top-2.5 text-blue-500 text-sm leading-5 tracking-normal whitespace-nowrap justify-center items-stretch bg-white w-[79px] max-w-full ml-4 mt-1 p-1 self-start max-md:ml-2.5">
+            <div className="relative top-2.5 text-blue-500 text-sm leading-5 tracking-normal whitespace-nowrap justify-center items-stretch bg-white w-fit max-w-full ml-4 mt-1 p-1 self-start max-md:ml-2.5">
                 First name
             </div>
             <input
@@ -17,7 +17,7 @@ export const ApplicationProfileUpdate = (props) => {
                 placeholder="First Name"
             />
 
-            <div className="relative top-2.5 text-blue-500 text-sm leading-5 tracking-normal whitespace-nowrap justify-center items-stretch bg-white w-[78px] max-w-full ml-4 mt-4 p-1 self-start max-md:ml-2.5">
+            <div className="relative top-2.5 text-blue-500 text-sm leading-5 tracking-normal whitespace-nowrap justify-center items-stretch bg-white w-fit max-w-full ml-4 mt-4 p-1 self-start max-md:ml-2.5">
                 Last name
             </div>
             <input
@@ -27,7 +27,7 @@ export const ApplicationProfileUpdate = (props) => {
                 placeholder="Last Name"
             />
 
-            <div className="relative top-2.5 text-blue-500 text-sm leading-5 tracking-normal whitespace-nowrap justify-center items-stretch bg-white w-[106px] max-w-full ml-4 mt-4 p-1 self-start max-md:ml-2.5">
+            <div className="relative top-2.5 text-blue-500 text-sm leading-5 tracking-normal whitespace-nowrap justify-center items-stretch bg-white w-fit max-w-full ml-4 mt-4 p-1 self-start max-md:ml-2.5">
                 Phone number
             </div>
             <input
@@ -37,29 +37,9 @@ export const ApplicationProfileUpdate = (props) => {
                 placeholder="Phone number"
             />
 
-            <div className="relative top-2.5 text-blue-500 text-sm leading-5 tracking-normal whitespace-nowrap justify-center items-stretch bg-white w-[104px] max-w-full ml-4 mt-4 p-1 self-start max-md:ml-2.5">
-                Email Address
-            </div>
-            <input
-                type="email"
-                name="firstName"
-                className="text-black text-base leading-6 tracking-normal whitespace-nowrap rounded border border-[color:var(--Blue-1,#2F80ED)] self-stretch w-full px-4 py-2.5 border-solid max-md:max-w-full"
-                placeholder="email address"
-            />
-
             <div className="text-zinc-500 text-base font-semibold leading-6 tracking-normal self-stretch w-full mt-6 max-md:max-w-full">
                 Location Information
             </div>
-
-            <div className="relative top-2.5 text-blue-500 text-sm leading-5 tracking-normal whitespace-nowrap justify-center items-stretch bg-white aspect-[2.25] ml-4 mt-1 p-1 self-start max-md:ml-2.5">
-                Job title
-            </div>
-            <input
-                type="text"
-                name="job Title"
-                className="text-black text-base leading-6 tracking-normal whitespace-nowrap rounded border border-[color:var(--Blue-1,#2F80ED)] self-stretch w-full px-4 py-2.5 border-solid max-md:max-w-full"
-                placeholder="job title"
-            />
 
             <div className="relative top-2.5 text-blue-500 text-sm leading-5 tracking-normal whitespace-nowrap justify-center items-stretch bg-white aspect-[1.25] ml-4 mt-4 p-1 self-start max-md:ml-2.5">
                 City
@@ -69,15 +49,6 @@ export const ApplicationProfileUpdate = (props) => {
                 name="City"
                 className="text-black text-base leading-6 tracking-normal whitespace-nowrap rounded border border-[color:var(--Blue-1,#2F80ED)] self-stretch w-full px-4 py-2.5 border-solid max-md:max-w-full"
                 placeholder="city"
-            />
-            <div className="relative top-2.5 text-blue-500 text-sm leading-5 tracking-normal whitespace-nowrap justify-center items-stretch bg-white aspect-[1.25] ml-4 mt-4 p-1 self-start max-md:ml-2.5">
-                LGA
-            </div>
-            <input
-                type="text"
-                name="LGA"
-                className="text-black text-base leading-6 tracking-normal whitespace-nowrap rounded border border-[color:var(--Blue-1,#2F80ED)] self-stretch w-full px-4 py-2.5 border-solid max-md:max-w-full"
-                placeholder="LGA"
             />
             <div className="relative top-2.5 text-blue-500 text-sm leading-5 tracking-normal whitespace-nowrap justify-center items-stretch bg-white aspect-[1.5714285714285714] ml-4 mt-4 p-1 self-start max-md:ml-2.5">
                 State
@@ -89,7 +60,7 @@ export const ApplicationProfileUpdate = (props) => {
                 placeholder="state"
             />
 
-            <div className="relative top-2.5 text-blue-500 text-sm leading-5 tracking-normal whitespace-nowrap justify-center items-stretch bg-white w-[88px] max-w-full ml-4 mt-4 p-1 self-start max-md:ml-2.5">
+            <div className="relative top-2.5 text-blue-500 text-sm leading-5 tracking-normal whitespace-nowrap justify-center items-stretch bg-white w-fit max-w-full ml-4 mt-4 p-1 self-start max-md:ml-2.5">
                 Postal code
             </div>
             <input

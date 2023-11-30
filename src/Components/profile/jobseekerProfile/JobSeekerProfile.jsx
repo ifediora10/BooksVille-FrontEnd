@@ -33,10 +33,10 @@ export const JobSeekerProfile = ({userData, setDep})=> {
             </div>
 
             <div className="w-[860px] mx-auto mt-10">
-                {page === "personalInfo" && <PersonalInfo setDep={setDep} /> }
-                {page === "cv" && <CV/> }
-                {page === "qualification" && <Qualification/> }
-                {page === "jobPreference" && <JobPreference/> }
+                {page === "personalInfo" && <PersonalInfo setDep={setDep} userData={userData} /> }
+                {page === "cv" && <CV setDep={setDep} userData={userData} /> }
+                {page === "qualification" && <Qualification setDep={setDep} userData={userData} /> }
+                {page === "jobPreference" && <JobPreference setDep={setDep} userData={userData} /> }
             </div>
         </div>
     );

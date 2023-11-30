@@ -4,7 +4,7 @@ import {useState} from "react";
 import axios from "../../../../api/axios.jsx";
 import {SweetAlert} from "../../../utils/SweetAlert.jsx";
 
-export const Resume = () => {
+export const Resume = ({setDep ,userdata}) => {
 
     const [uploadedFiles, setUploadedFiles] = useState([]);
     const { getRootProps, getInputProps } = useDropzone({
@@ -45,6 +45,37 @@ export const Resume = () => {
     return(
         <form onSubmit={handleSubmit} className="flex flex-col items-stretch w-[61%] ml-5 max-md:w-full max-md:ml-0">
             <div className="items-start flex grow flex-col max-md:max-w-full max-md:mt-10">
+
+                {/*{*/}
+                {/*    userdata.resume !== "" ?*/}
+                {/*        <div>*/}
+                {/*            <img*/}
+                {/*                loading="lazy"*/}
+                {/*                src="https://cdn.builder.io/api/v1/image/assets/TEMP/9e0e38ed-0277-446b-91ca-6132000cfea2?"*/}
+                {/*                className="aspect-square object-contain object-center w-[50px] overflow-hidden shrink-0 max-w-full"*/}
+                {/*            />*/}
+                {/*            <div className="items-stretch self-center flex grow basis-[0%] flex-col my-auto">*/}
+                {/*                <div className="justify-between items-stretch flex gap-5">*/}
+                {/*                    <div className="text-gray-900 text-base leading-5 grow shrink basis-auto">*/}
+                {/*                        {`${localStorage.getItem("firstname")} ${localStorage.getItem("lastname")}`} Cover Letter.pdf*/}
+                {/*                    </div>*/}
+                {/*                    <img*/}
+                {/*                        loading="lazy"*/}
+                {/*                        src="https://cdn.builder.io/api/v1/image/assets/TEMP/6923fb47-ed3e-4b4d-9f85-5724848301e2?"*/}
+                {/*                        className="aspect-square object-contain object-center w-4 overflow-hidden shrink-0 max-w-full self-start cursor-pointer"*/}
+                {/*                    />*/}
+                {/*                </div>*/}
+                {/*                <div className="text-gray-300 text-xs leading-4 whitespace-nowrap mt-1">*/}
+                {/*                    <button*/}
+                {/*                        className="text-white text-base font-semibold leading-6 tracking-normal whitespace-nowrap justify-center items-stretch bg-blue-500 w-fit max-w-full mt-8 px-4 py-2 rounded-xl self-end cursor-pointer"*/}
+                {/*                    > Change Resume </button>*/}
+                {/*                </div>*/}
+                {/*            </div>*/}
+                {/*        </div>*/}
+                {/*        : <></>*/}
+                {/*}*/}
+
+
                 <div className="text-gray-300 text-sm leading-5 tracking-normal whitespace-nowrap flex justify-start items-stretch bg-white self-start w-fit ">
                     drop your resume in the box below
                 </div>

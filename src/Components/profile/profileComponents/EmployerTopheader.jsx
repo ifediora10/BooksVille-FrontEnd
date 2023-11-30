@@ -1,5 +1,6 @@
 import * as React from "react";
 import {useState} from "react";
+import {Link} from "react-router-dom";
 
 export const EmployerTopHeader = ({handleFindCandidatePage, handleProfilePage}) => {
     const [active, setActive] = useState("profile");
@@ -37,12 +38,14 @@ export const EmployerTopHeader = ({handleFindCandidatePage, handleProfilePage}) 
             </div>
 
             <div className="items-stretch flex justify-between gap-5 max-md:justify-center">
-                <img
-                    loading="lazy"
-                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/4c7e0a42-5e50-438b-9071-3e586df5aa6b?apiKey=2a664b353843410292501e6f128833a4&"
-                    className="aspect-square object-contain object-center w-8 overflow-hidden self-center shrink-0 max-w-full my-auto cursor-pointer"
-                    alt="chat"
-                />
+                <Link to={"/chat"} className="aspect-square object-contain object-center w-8 overflow-hidden self-center shrink-0 max-w-full my-auto cursor-pointer" >
+                    <img
+                        loading="lazy"
+                        src="https://cdn.builder.io/api/v1/image/assets/TEMP/4c7e0a42-5e50-438b-9071-3e586df5aa6b?apiKey=2a664b353843410292501e6f128833a4&"
+                        className="aspect-square object-contain object-center w-8 overflow-hidden self-center shrink-0 max-w-full my-auto cursor-pointer"
+                        alt="chat"
+                    />
+                </Link>
 
                 <img
                     loading="lazy"

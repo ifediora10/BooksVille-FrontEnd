@@ -46,6 +46,9 @@ export const LoginForm = ({onAuth}) => {
                     localStorage.setItem("firstname", result.data.data.firstName);
                     localStorage.setItem("lastname", result.data.data.lastName);
                     localStorage.setItem("email", result.data.data.email);
+                    localStorage.setItem("profilePicture", result.data.data.profilePicture);
+
+                    console.log("email", result.data.data);
 
                     setClip(false);
 

@@ -19,7 +19,7 @@ export const SignUpSelect = () => {
                     Sign Up as an Employer
                 </Link>
 
-                <Link to="/jobseeker-signup" className="hover:bg-[#2563EB] text-center text-gray-50 text-base font-semibold leading-4 whitespace-nowrap justify-center items-center bg-blue-500 self-stretch px-5 py-6 rounded-xl max-md:max-w-full">
+                <Link to="/jobseeker-signup" className="hover:bg-[#2563EB] mb-5 text-center text-gray-50 text-base font-semibold leading-4 whitespace-nowrap justify-center items-center bg-blue-500 self-stretch px-5 py-6 rounded-xl max-md:max-w-full">
                     Sign Up as a Job Seeker
                 </Link>
             </div>

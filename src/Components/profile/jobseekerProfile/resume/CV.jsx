@@ -3,7 +3,7 @@ import {useState} from "react";
 import {Resume} from "./Resume.jsx";
 import {CoverLetter} from "./CoverLetter.jsx";
 
-export const CV = () => {
+export const CV = ({setDep, userData}) => {
     const [page, setPage] = useState("resume")
 
     let icon1 = "https://cdn.builder.io/api/v1/image/assets/TEMP/1f2e9a1e-af44-4b6b-ba65-ef4e19f2f411?apiKey=ecb6ce71cdf4467d9335c2f7dc302a16&"
@@ -34,8 +34,8 @@ export const CV = () => {
                     </div>
                 </div>
 
-                { page === "resume" && <Resume/> }
-                { page === "coverLetter" && <CoverLetter/> }
+                { page === "resume" && <Resume setDep={setDep} userData={userData} /> }
+                { page === "coverLetter" && <CoverLetter setDep={setDep} userData={userData} /> }
 
             </div>
         </div>

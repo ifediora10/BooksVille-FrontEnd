@@ -1,5 +1,5 @@
 
-export const JobPostHalfDisplay = ({companyName, jobTitle, priceRange, jobDescription, handleSeeMore, handleFindJobsOneCompany, seeMore}) => {
+export const JobPostHalfDisplay = ({handleSeeMore, handleFindJobsOneCompany, seeMore, selectedJobPost, apply}) => {
 
     return(
         <div className="items-start flex flex-col max-md:max-w-full max-md:mt-10 max-w-[1000px] mx-auto">
@@ -7,7 +7,7 @@ export const JobPostHalfDisplay = ({companyName, jobTitle, priceRange, jobDescri
                 <div className="justify-between items-stretch flex gap-5 max-md:max-w-full max-md:flex-wrap">
                     <img
                         loading="lazy"
-                        src="https://res.cloudinary.com/dpfqbb9pl/image/upload/v1700142255/gtfd2nbof5pqblvyrfa7.svg"
+                        src={`${selectedJobPost.logo}`}
                         className="aspect-square object-contain object-center w-[58px] overflow-hidden shrink-0 max-w-full"
                     />
                     <img
@@ -17,36 +17,28 @@ export const JobPostHalfDisplay = ({companyName, jobTitle, priceRange, jobDescri
                     />
                 </div>
                 <div onClick={handleFindJobsOneCompany} className="hover:text-blue-500 cursor-pointer text-black text-base leading-6 tracking-normal whitespace-nowrap mt-3 self-start">
-                    {companyName}
-                    Decagon
+                    {selectedJobPost.companyName}
                 </div>
                 <div className="text-black text-xl font-semibold leading-7 tracking-normal whitespace-nowrap mt-2 self-start">
-                    {jobTitle}
-                    Software Engineer
+                    {selectedJobPost.jobTitle}
                 </div>
                 <div className="text-blue-500 text-lg font-medium leading-6 tracking-normal whitespace-nowrap mt-3 max-md:max-w-full">
-                    {priceRange}
-                    ₦ 500,000 - ₦ 700,000/ per month
+                    {`₦${selectedJobPost.minimumPay} - ₦${selectedJobPost.maximumPay} / ${selectedJobPost.payRate}`}
                 </div>
                 <div className="text-black text-base leading-6 tracking-normal whitespace-nowrap mt-3 max-md:max-w-full">
-                    Edo, Nigeria
+                    {selectedJobPost.location}
                 </div>
-                <button className="text-white text-base font-semibold leading-6 tracking-normal whitespace-nowrap bg-blue-500 w-[115px] max-w-full mt-3 px-4 py-2 rounded-xl self-start">
+
+                <button onClick={apply} className="text-white text-base font-semibold leading-6 tracking-normal whitespace-nowrap bg-blue-500 w-[115px] max-w-full mt-3 px-4 py-2 rounded-xl self-start">
                     Apply now
                 </button>
+
             </div>
             <div className="text-black text-lg font-medium leading-6 tracking-normal uppercase whitespace-nowrap mt-2.5 max-md:max-w-full">
                 Job Description{" "}
             </div>
             <div className="text-black text-base font-medium leading-6 tracking-normal mt-3.5 max-md:max-w-full">
-                {jobDescription}
-                We are seeking a talented and motivated Junior Full-Stack
-                Engineer to join our dynamic team. As a Junior Full-Stack
-                Engineer, you will work closely with our development team to
-                create, maintain, and optimize web applications. This is an
-                excellent opportunity for someone looking to kick-start their
-                career in full-stack development and gain hands-on experience
-                with modern technologies.
+                {selectedJobPost.description}
             </div>
             <div className="text-black text-lg font-medium leading-6 tracking-normal uppercase whitespace-nowrap mt-3.5 max-md:max-w-full">
                 Responsibilities

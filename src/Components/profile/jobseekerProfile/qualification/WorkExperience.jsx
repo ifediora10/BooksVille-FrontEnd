@@ -38,6 +38,7 @@ export const WorkExperience = () => {
     return(
         <form onSubmit={handleSubmit} className="flex flex-col items-stretch w-[61%] ml-5 max-md:w-full max-md:ml-0">
             <div className="items-end flex grow flex-col max-md:max-w-full max-md:mt-10">
+
                 <div className="relative top-2 text-blue-500 text-sm leading-5 tracking-normal whitespace-nowrap flex justify-start items-stretch bg-white self-start w-fit px-1 mx-4">
                     Job title
                 </div>
