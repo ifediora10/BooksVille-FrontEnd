@@ -7,6 +7,10 @@ import axios from "../../api/axios.jsx";
 import {ReviewApplication} from "../JobApplication/ReviewApplication.jsx";
 
 export const JobPostsFullPage = ({handleFindJobsOneCompany, userData}) => {
+    const activeStyle = {
+        border: "1px solid var(--Blue-1, #2F80ED)",
+        boxShadow: "0px 6px 16px 0px rgba(0, 0, 0, 0.16)"
+    }
 
     const [seeMore, setSeeMore] = useState(false)
 
@@ -129,8 +133,9 @@ export const JobPostsFullPage = ({handleFindJobsOneCompany, userData}) => {
                                         { jobPosts.map(
                                             jobPost => (
 
-                                                <div key={jobPost.id} onClick={() => (setInitialPost(jobPost)) }>
+                                                <div key={jobPost.id} id={jobPost.id} onClick={() => (setInitialPost(jobPost)) }>
                                                     <JobPostCard
+                                                        customStyle={initialPost.id === jobPost.id ? activeStyle : {}}
                                                         handleFindJobsOneCompany={handleFindJobsOneCompany}
                                                         companyName={jobPost.companyName}
                                                         jobTitle={jobPost.title}

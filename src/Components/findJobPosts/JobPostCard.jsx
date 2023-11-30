@@ -1,9 +1,9 @@
-export const JobPostCard = ({companyName, jobTitle, logo, priceRange, jobDescription, jobType, state, handleFindJobsOneCompany}) => {
+export const JobPostCard = ({companyName, jobTitle, logo, priceRange, jobDescription, jobType, state, handleFindJobsOneCompany, customStyle}) => {
     const jobTypeBackgroundColor = jobType === "REMOTE" ? "bg-[#56CCF2]" : jobType === "HYBRID" ? "bg-[#D1FADF]" : jobType === "ON_SITE" ? "bg-[#FEF0C7]" : "";
-    const jobTypeColor = jobType === "REMOTE" ? "text-[#2F80ED]" : jobType === "HYBRID" ? "text-[#32D583]" : jobType === "bg-[ON_SITE]" ? "text-[#2F80ED]" : "";
+    const jobTypeColor = jobType === "REMOTE" ? "text-[#2F80ED]" : jobType === "HYBRID" ? "text-[#32D583]" : jobType === "ON_SITE" ? "text-[#FEC84B]" : "";
 
     return(
-        <div className="items-stretch border border-[color:var(--Blue-1,#2F80ED)] shadow-lg bg-white flex w-full flex-col p-6 rounded-xl border-solid max-md:px-5 mb-5">
+        <div className="items-stretch border shadow-lg bg-white flex w-full flex-col p-6 rounded-xl border-solid max-md:px-5 mb-5" style={customStyle} >
             <div className="justify-between items-stretch flex gap-5">
                 <div className="items-stretch flex grow basis-[0%] flex-col">
                     <div onClick={handleFindJobsOneCompany} className="hover:text-blue-500 cursor-pointer text-black text-base leading-6 tracking-normal whitespace-nowrap">
