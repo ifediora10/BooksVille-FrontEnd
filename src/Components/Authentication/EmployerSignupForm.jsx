@@ -343,9 +343,9 @@ export const EmployerSignUpForm = () => {
                         </div>
 
                         <div className="sm:col-span-2 sm:col-start-1">
-                        <label htmlFor="country" className="block text-sm font-medium leading-6 text-gray-900">
-                            Country
-                        </label>
+                            <label htmlFor="country" className="block text-sm font-medium leading-6 text-gray-900">
+                                Country
+                            </label>
                             <div className="mt-1">
                                 <select
                                     id="country"

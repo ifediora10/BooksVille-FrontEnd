@@ -12,38 +12,46 @@ export const Resume = ({setDep ,userdata}) => {
             setUploadedFiles(acceptedFiles);
 
             // Call your backend API endpoint to upload files
+            // uploadSingleFile(acceptedFiles[0]);
 
         },
     });
 
-    const handleSubmit = async (e) => {
-        e.preventDefault()
+    function uploadSingleFile(resume) {
+        const formData = new FormData();
+        formData.append('resume', resume);
 
-        try {
-            const formData = new FormData();
-            uploadedFiles.forEach((file) => {
-                formData.append('resume', file);
-            });
+        // Retrieve the JWT token from your authentication system (e.g., from localStorage)
+        const token = localStorage.getItem('token');
 
-            await axios.put("/job-seeker/update-profile/resume", formData, {
+        axios
+            .put("/job-seeker/update-profile/resume", formData, {
                 headers: {
-                    'Authorization': `Bearer ${localStorage.getItem("token")}`,
-                    'Content-Type': 'multipart/form-data'
-                }
-            }).then(
-                result => {
-                    SweetAlert('success', 'Update Successful', 'Your contact information has been updated successfully');
-                    console.log(result.data.data)
-                }
-            )
-        } catch (error) {
-            SweetAlert('error', 'Oops!', 'Something went wrong please try again', 2000);
-            console.log(error.message)
-        }
+                    'Authorization': `Bearer ${token}`,
+                    'Content-Type': 'multipart/form-data', // Specify content type for file upload
+                },
+            })
+            .then((result) => {
+                console.log(result.data)
+
+                SweetAlert('success', 'Update Successful', 'Resume uploaded successfully');
+
+            })
+            .catch((error) => {
+
+                SweetAlert('error', 'Oops!', 'Something went wrong please try again', 2000);
+
+                console.error('Error uploading resume:', error);
+                // Handle error appropriately (e.g., show an error message to the user)
+            });
     }
 
+
     return(
-        <form onSubmit={handleSubmit} className="flex flex-col items-stretch w-[61%] ml-5 max-md:w-full max-md:ml-0">
+        <form onSubmit={(e) => {
+            e.preventDefault();
+            uploadSingleFile(uploadedFiles[0]);
+        }} className="flex flex-col items-stretch w-[61%] ml-5 max-md:w-full max-md:ml-0">
             <div className="items-start flex grow flex-col max-md:max-w-full max-md:mt-10">
 
                 {/*{*/}
@@ -81,7 +89,7 @@ export const Resume = ({setDep ,userdata}) => {
                 </div>
 
                 <div {...getRootProps()} className="w-[30vw] max-h-100 border-2 border-dashed border-gray-300 rounded-lg p-4 mb-4 mt-4 text-white text-center">
-                    <input type="file" {...getInputProps()} />
+                    <input {...getInputProps()} />
                     <p className="text-black">Drop your files here or </p>
                     <ul style={{ listStyle: 'none', padding: 0 }}>
                         {uploadedFiles.map((file) => (
@@ -99,7 +107,7 @@ export const Resume = ({setDep ,userdata}) => {
                     type="submit"
                     name="submit"
                     value="Save Changes"
-                    className="text-white text-base font-semibold leading-6 tracking-normal whitespace-nowrap justify-center items-stretch bg-blue-500 w-fit max-w-full mt-8 px-4 py-2 rounded-xl self-end cursor-pointer"
+                    className="text-white text-base font-semibold leading-6 tracking-normal whitespace-nowrap justify-center items-stretch bg-blue-500 w-[145px] max-w-full mt-8 px-4 py-2 rounded-xl self-end cursor-pointer"
                 />
             </div>
         </form>

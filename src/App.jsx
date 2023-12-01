@@ -1,14 +1,15 @@
-import {LoginForm} from "./components/Authentication/LoginForm.jsx";
+import {LoginForm} from "./Components/Authentication/LoginForm.jsx";
 import {Route, Routes} from "react-router-dom";
-import {ResetPasswordEmail} from "./components/Authentication/ResetPasswordEmail.jsx";
-import {JobSeekerSignUpForm} from "./components/Authentication/JobSeekerSignUpForm.jsx";
-import {ResetPassword} from "./components/Authentication/ResetPassword.jsx";
-import {JobSeekerPage} from "./components/Pages/JobSeekerPage.jsx";
-import {EmployerSignUpForm} from "./components/Authentication/EmployerSignupForm.jsx";
-import {LandingPage} from "./components/Pages/landingPage/LandingPage.jsx";
-import {EmployerPage} from "./components/Pages/EmployerPage.jsx";
-import {ChatPage} from "./components/Pages/ChatPage.jsx";
+import {ResetPasswordEmail} from "./Components/Authentication/ResetPasswordEmail.jsx";
+import {JobSeekerSignUpForm} from "./Components/Authentication/JobSeekerSignUpForm.jsx";
+import {ResetPassword} from "./Components/Authentication/ResetPassword.jsx";
+import {JobSeekerPage} from "./Components/Pages/JobSeekerPage.jsx";
+import {EmployerSignUpForm} from "./Components/Authentication/EmployerSignupForm.jsx";
+import {LandingPage} from "./Components/Pages/landingPage/LandingPage.jsx";
+import {EmployerPage} from "./Components/Pages/EmployerPage.jsx";
+import {ChatPage} from "./Components/Pages/ChatPage.jsx";
 import {useState} from "react";
+
 
 function App() {
     const [user, setUser] = useState();
@@ -26,8 +27,8 @@ function App() {
             <Route path="/jobseeker-page" element={<JobSeekerPage/>}/>
             <Route path="/chat" element={<ChatPage user={user} />}/>
         </Routes>
-
     </>
+
   )
 }
 
