@@ -69,7 +69,7 @@ export const CoverLetter = () => {
                     type="submit"
                     name="submit"
                     value="Save Changes"
-                    className="text-white text-base font-semibold leading-6 tracking-normal whitespace-nowrap justify-center items-stretch bg-blue-500 w-[145px] max-w-full mt-8 px-4 py-2 rounded-xl self-end cursor-pointer"
+                    className="text-white text-base font-semibold leading-6 tracking-normal whitespace-nowrap justify-center items-stretch bg-blue-500 w-fit max-w-full mt-8 px-4 py-2 rounded-xl self-end cursor-pointer"
                 />
             </div>
         </form>

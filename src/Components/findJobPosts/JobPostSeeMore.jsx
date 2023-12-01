@@ -6,12 +6,6 @@ export const JobPostSeeMore = ({companyName, jobTitle, logo, priceRange, jobDesc
         <div>
             <div className="gap-5 flex justify-center max-md:flex-col max-md:items-stretch max-md:gap-0">
                 <div className="flex flex-col items-stretch w-[58%] ml-5 max-md:w-full max-md:ml-0">
-                    {/*<div className="self-center flex w-[781px] max-w-full flex-col mt-6 px-5">*/}
-
-                    {/*    <JobPostSearch/>*/}
-
-                    {/*</div>*/}
-
 
                     <div className="items-start flex flex-col mt-5 px-5 max-md:max-w-full max-md:mt-10">
                         <div className="items-stretch border-[color:var(--Gray-3,#828282)] flex flex-col px-6 rounded-xl border-[0.5px] border-solid max-md:px-5 w-full">

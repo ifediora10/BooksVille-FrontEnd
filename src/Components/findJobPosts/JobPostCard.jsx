@@ -26,7 +26,7 @@ export const JobPostCard = ({companyName, jobTitle, logo, priceRange, jobDescrip
                 {jobDescription}
             </div>
             <div className="flex justify-between items-stretch gap-5 mt-4">
-                <div className={`${jobTypeBackgroundColor} ${jobTypeColor} text-sm font-medium leading-5 tracking-normal uppercase whitespace-nowrap justify-center items-stretch bg-cyan-300 px-2 py-1 rounded-xl w-[75px] text-center`}>
+                <div className={`${jobTypeBackgroundColor} ${jobTypeColor} text-sm font-bold leading-5 tracking-normal uppercase whitespace-nowrap justify-center items-stretch px-2 py-1 rounded-xl w-[75px] text-center`}>
                     {jobType === "ON_SITE" ? "ON SITE" : jobType }
                 </div>
                 <div className="text-black text-base max-w-fit leading-6 tracking-normal self-end grow whitespace-nowrap my-auto">
