@@ -5,6 +5,7 @@ import {JobPostsForOneCompany} from "../findJobPosts/JobPostsForOneCompany.jsx";
 import {useEffect, useState} from "react";
 import {JobSeekerTopHeader} from "../profile/profileComponents/JobSeekerTopHeader.jsx";
 import axios from "../../api/axios.jsx";
+import {ChatPage} from "./ChatPage.jsx";
 
 export const JobSeekerPage = () => {
 
@@ -50,12 +51,17 @@ export const JobSeekerPage = () => {
         setPage("find-jobs-one-company")
     }
 
+    const handleChatPage = () => {
+        setPage("chat")
+    }
+
     return(
         <div className="mb-15">
             <JobSeekerTopHeader
                 handleFindJobPage={handleFindJobPage}
                 handleProfilePage={handleProfilePage}
                 userData={userData}
+                handleChat={handleChatPage}
             />
 
             { page === "find-jobs" && <JobPostsFullPage
@@ -67,7 +73,7 @@ export const JobSeekerPage = () => {
             { page === "find-jobs-see-more" && <JobPostSeeMore handleFindJobsOneCompany={handleFindJobsOneCompany} /> }
             { page === "find-jobs-one-company" && <JobPostsForOneCompany companyName="Decagon Institute"/> }
             { page === "jobSeeker-profile" && <JobSeekerProfile setDep={() => {setDep(!dep)}} userData={userData} /> }
-
+            { page === "chat" && <ChatPage/>}
         </div>
     )
 }

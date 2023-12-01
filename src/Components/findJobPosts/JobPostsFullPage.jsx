@@ -155,7 +155,7 @@ export const JobPostsFullPage = ({handleFindJobsOneCompany, userData}) => {
                             }
 
                             <>
-                                <div className="flex flex-col items-stretch ml-5 max-md:w-full max-md:ml-0">
+                                <div className="sticky top-[6rem] flex flex-col items-stretch ml-5 max-md:w-full max-md:ml-0">
                                     <JobPostHalfDisplay
                                         selectedJobPost={initialPost}
                                         handleFindJobsOneCompany={handleFindJobsOneCompany}

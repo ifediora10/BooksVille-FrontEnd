@@ -2,7 +2,7 @@
 export const JobPostHalfDisplay = ({handleSeeMore, handleFindJobsOneCompany, seeMore, selectedJobPost, apply}) => {
 
     return(
-        <div className="items-start flex flex-col max-md:max-w-full max-md:mt-10 max-w-[1000px] mx-auto">
+        <div className="sticky top-[6rem] items-start flex flex-col max-md:max-w-full max-md:mt-10 max-w-[1000px] mx-auto">
             <div className="items-stretch border-[color:var(--Gray-3,#828282)] self-stretch flex flex-col p-6 rounded-xl border-[0.5px] border-solid max-md:max-w-full max-md:px-5">
                 <div className="justify-between items-stretch flex gap-5 max-md:max-w-full max-md:flex-wrap">
                     <img

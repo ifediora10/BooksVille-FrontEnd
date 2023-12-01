@@ -25,7 +25,6 @@ function App() {
             <Route path="/reset-forgot-password" element={<ResetPassword/>}/>
             <Route path="/employer-page" element={<EmployerPage/>}/>
             <Route path="/jobseeker-page" element={<JobSeekerPage/>}/>
-            <Route path="/chat" element={<ChatPage user={user} />}/>
         </Routes>
     </>
 

@@ -1,6 +1,6 @@
 export const JobPostSearch = () => {
     return(
-        <div className="items-stretch mt-[5rem] flex w-full gap-2 -mr-5 max-md:max-w-full max-md:flex-wrap max-md:justify-center">
+        <div className="items-stretch flex w-full gap-2 -mr-5 max-md:max-w-full max-md:flex-wrap max-md:justify-center">
             <div className="items-stretch bg-slate-50 flex justify-between gap-5 px-6 py-2.5 rounded-lg max-md:px-5">
                 <input
                     type="text"

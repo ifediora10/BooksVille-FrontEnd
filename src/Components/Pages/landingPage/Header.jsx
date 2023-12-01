@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 export const Header = ({handleSignUp}) => {
 
     return (
-        <div className="fixed w-full bg-white">
+        <div className="sticky top-[0] w-full bg-white">
         <div className="max-w-[1280px] items-center mx-auto justify-between items-stretch self-stretch border-b-[color:var(--blue-gray-200,#E2E8F0)] flex gap-5 pl-20 pr-6 pb-2 border-b border-solid max-md:flex-wrap max-md:px-5">
             <div className="logo">
                 <img src="https://res.cloudinary.com/dpfqbb9pl/image/upload/v1699463224/SS1_jyhel9.png" alt="" />
