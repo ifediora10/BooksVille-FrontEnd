@@ -26,6 +26,7 @@ function App() {
             <Route path="/jobseeker-page" element={<JobSeekerPage/>}/>
             <Route path="/chat" element={<ChatPage user={user} />}/>
         </Routes>
+
     </>
   )
 }
