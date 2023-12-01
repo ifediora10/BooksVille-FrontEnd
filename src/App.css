@@ -115,7 +115,7 @@ input[type=submit]:hover{
 }
 
 .profile-nav {
-  border-bottom: solid 2px white;
+  border: solid 2px white;
 }
 
 .active-nav {
